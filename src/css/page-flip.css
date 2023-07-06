@@ -1,0 +1,27 @@
+.nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column-reverse;
+    bottom: 0;
+    right: 105px;
+    width: 0;
+    height: 0;
+    background-color: #f1f1f1;
+}
+
+.nav-toggle {
+    display: block;
+    text-align: center;
+    background-color: #ddd;
+    padding: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 500;
+    border: transparent;
+}
+
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+}
