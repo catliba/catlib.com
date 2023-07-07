@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/page-flip.css'
 import { Link } from 'react-router-dom'
+import FlipPage from '../pngs/page-flip.png'
 
 export default function PageFlip() {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -8,13 +9,18 @@ export default function PageFlip() {
         setIsNavOpen(!isNavOpen);
     }
 
+    useEffect(() => {
+        setIsNavOpen(true);
+    }, []);
+
     return (
         <div className='nav'>
-            <button className="nav-toggle" onClick={toggleNav}>
-                Toggle Navigation
-            </button>
-            {isNavOpen && (
-                <ul className="nav-menu">
+            {isNavOpen ? 
+                (<button className="nav-toggle" onClick={toggleNav}>
+                    <img src={FlipPage} alt="."/>
+                </button>)
+                :
+                (<ul className="nav-menu">
                     <li>
                         <Link className="nav-option" to={`/aboutcatlib`}>About Me</Link>
                     </li>
@@ -27,8 +33,11 @@ export default function PageFlip() {
                     <li>
                         <Link className="nav-option" to={`/calendar`}>Calendar</Link>
                     </li>
-                </ul>
-            )}
+                    <button onClick={toggleNav}>
+                            <img src={FlipPage} alt="."/>
+                    </button>
+                </ul>)
+            }
         </div>
     )
 }
