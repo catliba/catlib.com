@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import '../css/page-flip.css'
-import { Link } from 'react-router-dom'
-import FlipPage from '../pngs/page-flip.png'
+import React, { useState, useEffect } from 'react';
+import '../css/page-flip.css';
+import { Link } from 'react-router-dom';
+import FlipPage from '../pngs/page-flip.png';
 
 export default function PageFlip() {
     const [isNavOpen, setIsNavOpen] = useState(false);
