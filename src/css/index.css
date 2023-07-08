@@ -24,8 +24,6 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
-  border: 10%;
-  border-color: #242424;
 }
 
 button {
@@ -35,6 +33,7 @@ button {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-image: url('../pngs/olga-thelavart-vS3idIiYxX0-unsplash.jpg');
+    background-image: url('../pngs/backdrop.png');
+    background-size: cover;
   }
 }
