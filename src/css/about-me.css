@@ -1,4 +1,76 @@
+@font-face {
+  font-family: 'American Typewriter';
+  src: url('../fonts/American-Typewriter-Regular.ttf');
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0; 
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: American Typewriter;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
 .about-me {
-    background-color: beige;
-    font-size: larger;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(245, 177, 239);
+  font-size: larger;
+  margin: auto;
+}
+
+.about-me p {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-me span{
+  display: inline;
+  font-size: 300px;
+}
+
+.languages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(65, 136, 184);
+}
+
+.achievements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(124, 115, 202);
 }
