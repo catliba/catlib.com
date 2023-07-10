@@ -24,6 +24,8 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
   overflow: auto;
   white-space: nowrap;
 }
@@ -41,19 +43,32 @@ body {
   transform: translateX(0);
 }
 
-.about-me {
+.about-me,
+.languages,
+.achievements,
+.watching,
+.contacts {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+}
+
+.about-me {
+  flex-direction: row;
+  justify-content: space-around;
   background-color: rgb(245, 177, 239);
-  font-size: larger;
-  margin: auto;
 }
 
 .about-me p {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  max-width: 35%;
+  overflow: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 2rem;
 }
 
 .about-me span{
@@ -62,15 +77,34 @@ body {
 }
 
 .languages {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
   background-color: rgb(65, 136, 184);
 }
 
+.languages h1 {
+  grid-column: 1 / 3;
+}
+
+.languages img {
+  max-width: 25%;
+  background-color: blue;
+}
+
+.languages img .bigger-image {
+  max-width: 50%;
+}
+
+
 .achievements {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: rgb(124, 115, 202);
+}
+
+.watching {
+  background-color: rgb(162, 221, 156);
+}
+
+.contacts {
+  background-color: rgb(160, 245, 171);
 }

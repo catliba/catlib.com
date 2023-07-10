@@ -1,11 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect } from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
 
-export default function AboutMe() {
-    const containerRef = useRef(null);
-    const [ isVisible, setIsVisible ] = useState(false);
+import frontend from '../pngs/frontend.png'
+import java from '../pngs/java.png'
+import reactPic from '../pngs/react.png'
+import python from '../pngs/pthon.png'
+import nodejspic from '../pngs/nodejs.png'
+import docker from '../pngs/docker.webp'
 
+export default function AboutMe() {
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -19,38 +23,27 @@ export default function AboutMe() {
         });
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => observer.observe(el));
-    }, )
+    },)
 
     return (
         <>
             <div className='content'>
                 <div className='hidden about-me'>
+                    <span>Hi</span>
                     <p> 
-                        <span>Hi</span>My name is Caleb but some of my friends call me catlib.
+                        My name is Caleb but some of my friends call me catlib. <br/>
+                        I had a lot of fun making this website come to life, and I hope to share a little bit about myself on here. <br/>
+                        You should also check out my blog! 
                     </p>
                 </div>
                 <div className='hidden languages'>
-                    <h1>My Technical Background</h1>
-                    <dl>
-                        <dt>HTML,CSS,JavaScript (add image later)</dt>
-                        <dd>How else would I make this website?</dd>
-
-                        <dt>Java</dt>
-                        <dd>My first language</dd>
-
-                        <dt>C</dt>
-                        <dd>Talk about what I did in CSE30</dd>
-
-                        <dt>React</dt>
-                        <dd>Who doesn't love React?</dd>
-
-                        <dt>Node.js (MongoDB)</dt>
-                        <dd>Backend for projects: (link project)</dd>
-
-                        <dt>Docker</dt>
-                    </dl>
-                    <h1>What I'm Interested In</h1>
-                    <p></p>
+                    <h1>I'm familiar with...</h1>
+                    <img src={frontend} alt="HTML,CSS,JavaScript" className='bigger-image'/>
+                    <img src={java} alt="Java"/>
+                    <img src={reactPic} alt="React"/>
+                    <img src={python} alt="Python"/>
+                    <img src={nodejspic} alt="Node.js"/>
+                    <img src={docker} alt="Docker"/>
                 </div>
                 <div className='hidden achievements'>
                     <h1>Accomplishments</h1>
@@ -59,6 +52,12 @@ export default function AboutMe() {
 
                         </li>
                     </ul>
+                    <h1>What I'm Interested In</h1>
+                    <p>
+                        I'm interested in things that move on a screen. Whether that's from 2D animations or from a 3D video game, 
+                        seeing a flat screen come to life so seamlessly is fascinating to me. I hope to delve deeper in computer
+                        graphics animation.
+                    </p>
                 </div>
                 <div className='hidden watching'>
                     <div className='shows'>
