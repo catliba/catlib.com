@@ -105,12 +105,24 @@ body {
 }
 
 
-
+/* SHOWS AND BOOKS */
 .watching {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   background-color: rgb(162, 221, 156);
+}
+
+.slideshow {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideshow img {
+  width: 50%;
 }
 
 .contacts {

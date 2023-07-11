@@ -12,6 +12,11 @@ import python from '../pngs/pthon.png'
 import nodejspic from '../pngs/nodejs.png'
 import docker from '../pngs/docker.webp'
 
+//import Slideshow from './slideshow'
+import book1 from '../pngs/book.jpg'
+import show1 from '../pngs/breakingbad.png'
+import show2 from '../pngs/demonslyaer.jpg'
+
 export default function AboutMe() {
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -28,6 +33,13 @@ export default function AboutMe() {
         hiddenElements.forEach((el) => observer.observe(el));
     },)
 
+    const bookImages = [
+        book1
+    ]
+    const showImages = [
+        show1,
+        show2
+    ]
     return (
         <>
             <div className='content'>
@@ -89,11 +101,13 @@ export default function AboutMe() {
                     </div>
                 </div>
                 <div className='hidden watching'>
-                    <div className='lit'>
+                    <div className='slideshow'>
                         <h1>Shows:</h1>
+                        <img src={show1}/>
                     </div>
-                    <div className='lit'>
+                    <div className='slideshow'>
                         <h1>Books:</h1>
+                        <img  src={book1}/>
                     </div>
                 </div>
                 <div className='hidden contacts'>
