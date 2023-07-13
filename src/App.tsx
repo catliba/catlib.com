@@ -6,6 +6,7 @@ import LogoClick from './pngs/Logo_Click.png'
 import LogoHover from './pngs/Logo_Hover.png'
 import Logo from './pngs/Logo_Start.png'
 
+
 // This page will feature the page flip introduction animation
 
 function App() {

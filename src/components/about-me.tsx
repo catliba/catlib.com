@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
+import { useQuery, gql } from '@apollo/client/';
 
 import frontend from '../pngs/frontend.png'
 import htmlPic from '../pngs/html.png'
@@ -17,7 +18,34 @@ import book1 from '../pngs/book.jpg'
 import show1 from '../pngs/breakingbad.png'
 import show2 from '../pngs/demonslyaer.jpg'
 
+const INTRO = gql`
+query getImages {
+    homepage {
+      data {
+        attributes {
+          introduction
+          docker
+          nodejs
+          java
+          htmlcssjs
+          react
+          python
+          language {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 export default function AboutMe() {
+    const {loading, error, data} = useQuery(INTRO);
+    console.log(data);
+
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -32,71 +60,55 @@ export default function AboutMe() {
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => observer.observe(el));
     },)
+    if (loading) return 'Loading...';
+    if (error) return `Error! ${error.message}`;
 
-    const bookImages = [
-        book1
-    ]
-    const showImages = [
-        show1,
-        show2
-    ]
+    const languageImages = data?.homepage.data.attributes.language.data.map((item:any) => item.attributes.url);
     return (
         <>
             <div className='content'>
                 <div className='hidden about-me'>
                     <span>Hi</span>
                     <p> 
-                        My name is Caleb but some friends call me catlib hence the name of this website. <br/>
-                        Inspired by himetsai.com, I wanted to make a blog documenting my life. <br/>
-                        But before we do that, let me tell you a little bit about myself and my technical background.
+                        {data?.homepage.data.attributes.introduction}
                     </p>
                 </div>
                 <div className='hidden languages'>
                     <h1>I'm familiar with...</h1>
                     <div className='grid-container'>
-                        <img src={frontend} alt="frontend" className='frontend'/>
+                        <img src={"http://localhost:1337" + languageImages[4]} alt="frontend" className='frontend'/>
                         <p>
-                            I remember making my first rudimentary website back in 2018 with the help of Khan Academy. It's still up on my Github. 
-                            I've learned a lot and became a lot more comfortable with web development since then, yet there's still so much to learn.
+                            {data?.homepage.data.attributes.htmlcssjs}
                         </p>
                     </div>
                     <div className='grid-container'>
-                        <img src={java} alt="Java"/>
+                        <img src={"http://localhost:1337" + languageImages[0]} alt="Java"/>
                         <p>
-                            From sitting in AP CS in 11th grade learning classes, methods, loops, arrays to learning data structures
-                            algorithms in college, I built many projects using java and use it to solve very tough questions (Leetcode easy questions aren't easy).
+                            {data?.homepage.data.attributes.java}
                         </p>
                     </div>
                     <div className='grid-container'>
-                        <img src={reactPic} alt="React"/>
+                        <img src={"http://localhost:1337" + languageImages[3]} alt="React"/>
                         <p>
-                            Who doesn't love React? I gained familiarity with React at my San Diego Supercomputer Center 
-                            internship where I worked on front end development, I and continue to use it for my projects today. 
-                            Rest In Peace: CRA.
+                            {data?.homepage.data.attributes.react}
                         </p>
                     </div>
                     <div className='grid-container'>
-                        <img src={python} alt="Python"/>
+                        <img src={"http://localhost:1337" + languageImages[5]} alt="Python"/>
                         <p>
-                            I took DSC 10 (Principles of Data Science) during my freshmen year of college and in that class, I learned the ways
-                            of Python and more specifically its (baby) Pandas DataFrames. Using the Jupyter Notebooks to write Python code, I
-                            learned how to manipulate data using this powerful yet clean language. 
+                            {data?.homepage.data.attributes.python}
                         </p>
                     </div>
                     <div className='grid-container'>
-                        <img src={nodejspic} alt="Node.js"/>
+                        <img src={"http://localhost:1337" + languageImages[1]} alt="Node.js"/>
                         <p>
-                            I learned Node.js recently this year (2023) for two projects: RaccTracc and MovieReviewer. Through these projects, I gained experience with 
-                            server side programming. I learned the MERN stack along the way and utlized REST APIs to communicate with the front end.
-                            With this knowledge, I am more confident in building more complicated and user-based websites.
+                            {data?.homepage.data.attributes.nodejs}
                         </p>
                     </div>
                     <div className='grid-container'>
-                        <img src={docker} alt="Docker"/>
+                        <img src={"http://localhost:1337" + languageImages[2]} alt="Docker"/>
                         <p>
-                            My first exposure to Docker was from my Boeing internship during the summer of my junior year of high school. Being a highschooler without a clue about
-                            deployment, I was confused with the purpose of learning Docker. Nevertheless, I built a java todo app, made a Docker image, and pushed it 
-                            onto Docker hub. Today, I am more interested in delving deeper into learning more about DevOps.
+                            {data?.homepage.data.attributes.docker}
                         </p>
                     </div>
                 </div>
