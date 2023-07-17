@@ -2,35 +2,34 @@ import React, { useEffect } from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
 import { useQuery, gql } from '@apollo/client/';
-
-import frontend from '../pngs/frontend.png'
-import htmlPic from '../pngs/html.png'
-import cssPic from '../pngs/CSS.png'
-import jsPic from '../pngs/JavaScript-Logo.png'
-import java from '../pngs/java.png'
-import reactPic from '../pngs/react.png'
-import python from '../pngs/pthon.png'
-import nodejspic from '../pngs/nodejs.png'
-import docker from '../pngs/docker.webp'
-
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 //import Slideshow from './slideshow'
 import book1 from '../pngs/book.jpg'
 import show1 from '../pngs/breakingbad.png'
-import show2 from '../pngs/demonslyaer.jpg'
+import plane from '../pngs/paperairplane.png'
+import backdrop from '../pngs/Untitled_Artwork.png'
 
 const INTRO = gql`
-query getImages {
+query getData {
     homepage {
       data {
         attributes {
           introduction
-          docker
-          nodejs
-          java
-          htmlcssjs
-          react
-          python
-          language {
+          hobbies {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          caleb {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          contact {
             data {
               attributes {
                 url
@@ -49,7 +48,6 @@ export default function AboutMe() {
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                console.log(entry);
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
                 } else {
@@ -60,83 +58,79 @@ export default function AboutMe() {
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => observer.observe(el));
     },)
+
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
-    const languageImages = data?.homepage.data.attributes.language.data.map((item:any) => item.attributes.url);
+  
+    const contactImages = data?.homepage.data.attributes.contact.data.map((image:any) => image.attributes.url);
+    //here is a single image so ...caleb.data is an Object
+    const profile = data?.homepage.data.attributes.caleb.data.attributes.url;
+    //not here though, thus [0] required
+    //later on when I add my hobbies I will map it
+    const hobby = data?.homepage.data.attributes.hobbies.data[0].attributes.url;
     return (
         <>
+            <div>
+                <h1 className='heading'>
+                    About me:
+                </h1>
+                <p>
+                    things left to do on this page: slideshow for 3rd and 4th panel <br/>
+                    change descriptions <br/>
+                    add captions to third and fourth panel <br/>
+                    get rid of rightside scroll (view don't get rid of the scroll itself) when animated
+                </p>
+            </div>
             <div className='content'>
-                <div className='hidden about-me'>
+                <img src={plane} className='plane-scroller'/>
+                <div className='about-me'>
+                    <img src={backdrop} className='background'/>
                     <span>Hi</span>
+                </div>
+                <div className='caption'>
+                    <img src={backdrop} className='background'/>
                     <p> 
                         {data?.homepage.data.attributes.introduction}
                     </p>
                 </div>
-                <div className='hidden languages'>
-                    <h1>I'm familiar with...</h1>
-                    <div className='grid-container'>
-                        <img src={"http://localhost:1337" + languageImages[4]} alt="frontend" className='frontend'/>
-                        <p>
-                            {data?.homepage.data.attributes.htmlcssjs}
-                        </p>
-                    </div>
-                    <div className='grid-container'>
-                        <img src={"http://localhost:1337" + languageImages[0]} alt="Java"/>
-                        <p>
-                            {data?.homepage.data.attributes.java}
-                        </p>
-                    </div>
-                    <div className='grid-container'>
-                        <img src={"http://localhost:1337" + languageImages[3]} alt="React"/>
-                        <p>
-                            {data?.homepage.data.attributes.react}
-                        </p>
-                    </div>
-                    <div className='grid-container'>
-                        <img src={"http://localhost:1337" + languageImages[5]} alt="Python"/>
-                        <p>
-                            {data?.homepage.data.attributes.python}
-                        </p>
-                    </div>
-                    <div className='grid-container'>
-                        <img src={"http://localhost:1337" + languageImages[1]} alt="Node.js"/>
-                        <p>
-                            {data?.homepage.data.attributes.nodejs}
-                        </p>
-                    </div>
-                    <div className='grid-container'>
-                        <img src={"http://localhost:1337" + languageImages[2]} alt="Docker"/>
-                        <p>
-                            {data?.homepage.data.attributes.docker}
-                        </p>
+                <div className='show'>
+                    <img src={backdrop} className='background'/>
+                    <div className='watching'>
+                        <h1>This is me:</h1>
+                        <img className='framed' src={"http://localhost:1337" + profile}/>
                     </div>
                 </div>
-                <div className='hidden watching'>
-                    <div className='slideshow'>
-                        <h1>Shows:</h1>
-                        <img src={show1}/>
+                <div className='show'>
+                    <img src={backdrop} className='background'/>
+                    <div className='reading'>
+                        <h1>I like to:</h1>
+                        <img  className='framed' src={"http://localhost:1337" + hobby}/>
                     </div>
-                    <div className='slideshow'>
-                        <h1>Books:</h1>
-                        <img  src={book1}/>
-                    </div>
-                </div>
-                <div className='hidden contacts'>
-                    <h1>Contacts:</h1>
-                    <ul>
-                        <li>Email</li>
-                        <li>LinkedIn</li>
-                        <li>Insta</li>
-                        <li>Snap</li>
-                        <li>Spotify</li>
-                        <li>Discord</li>
-                        <li>Facebook</li>
-                        <li>BeReal</li>
-                        <li>Chess</li>
-                    </ul>
                 </div>
             </div>
+            <div className='contacts'>
+                    <div className='logos'>
+                        <a className='logo hidden' href="https://friend.chess.com/LQznr">
+                            <img src={"http://localhost:1337" + contactImages[0]} />
+                        </a>
+                        <a className='logo hidden' href="https://www.linkedin.com/in/li-caleb/">
+                            <img src={"http://localhost:1337" + contactImages[1]} />
+                        </a>
+                        <a className='logo hidden' href="https://www.instagram.com/calebl1/">
+                            <img src={"http://localhost:1337" + contactImages[2]} />
+                        </a>
+                        <a className='logo hidden' href="https://open.spotify.com/user/1caleblili?si=01260313e24f464e">
+                            <img src={"http://localhost:1337" + contactImages[3]} />
+                        </a>
+                        <a className='logo hidden' href="mailto:1caleblili@gmail.com">
+                            <img src={"http://localhost:1337" + contactImages[4]} />
+                        </a>
+                        <a className='logo hidden' href="https://t.snapchat.com/VDbK9l3r">
+                            <img src={"http://localhost:1337" + contactImages[5]} />
+                        </a>
+                    </div>
+                </div>
             <PageFlip />
         </>
     )
