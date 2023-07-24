@@ -4,8 +4,6 @@ import '../css/about-me.css';
 import { useQuery, gql } from '@apollo/client/';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 //import Slideshow from './slideshow'
-import book1 from '../pngs/book.jpg'
-import show1 from '../pngs/breakingbad.png'
 import plane from '../pngs/paperairplane.png'
 import backdrop from '../pngs/Untitled_Artwork.png'
 

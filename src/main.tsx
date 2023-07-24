@@ -5,7 +5,7 @@ import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router
 import './css/index.css'
 import ErrorPage from './err.tsx'
 import AboutMe from './components/about-me.tsx'
-import Calendar from './components/calendar'
+import Calendar from './components/blog.tsx'
 import SheetMusic from './components/sheet-music'
 import ClassNotes from './components/class-notes'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'

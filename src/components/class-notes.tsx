@@ -33,6 +33,7 @@ query getImages {
     }
   }
 `
+
 export default function ClassNotes() {
     const {loading, error, data} = useQuery(INTRO);
     const languageImages = data?.homepage.data.attributes.language.data.map((item:any) => item.attributes.url);

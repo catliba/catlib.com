@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import React from 'react'
-import PageFlip from './components/page-flip'
 import './css/App.css'
 import LogoClick from './pngs/Logo_Click.png'
 import LogoHover from './pngs/Logo_Hover.png'
@@ -37,7 +35,7 @@ function App() {
         </map>
       </div>
       <div className='logo-caption'>
-        <p >My very random website for my very random thoughts</p>
+        <p>My very random website for my very random thoughts</p>
       </div>
     </div>
   )
