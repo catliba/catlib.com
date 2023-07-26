@@ -8,6 +8,7 @@ import AboutMe from './components/about-me.tsx'
 import Calendar from './components/blog.tsx'
 import SheetMusic from './components/sheet-music'
 import ClassNotes from './components/class-notes'
+import Feed from './components/feed'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
 const client = new ApolloClient({
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/notes",
     element: <ClassNotes />
+  },
+  {
+    path: "/calendar/:urlSlug",
+    element: <Feed />
   }
 ]);
 
