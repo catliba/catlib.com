@@ -6,7 +6,6 @@ export default function SheetMusic() {
     return (
         <>
             <div className='App'>
-            Sheet Music
             </div>
             <PageFlip />
         </>

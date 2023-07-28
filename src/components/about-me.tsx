@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
 import { useQuery, gql } from '@apollo/client/';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 //import Slideshow from './slideshow'
 import plane from '../pngs/paperairplane.png'
 import backdrop from '../pngs/Untitled_Artwork.png'

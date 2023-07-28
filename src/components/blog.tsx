@@ -3,6 +3,7 @@ import PageFlip from './page-flip';
 import '../css/blog.css';
 import { useQuery, gql } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import ItWasADarkAndStormyNight from '../pngs/snoopy-dark-and-stormy-night.jpg'
 
 const GET_ALL_POSTS = gql`
 query getPost {
@@ -10,8 +11,8 @@ query getPost {
       data {
         attributes {
           title
-          description
           urlSlug
+          date
         }
       }
     }
@@ -30,28 +31,26 @@ export default function Blog() {
     }
     return (
         <>
-            <title>
-                My blog
-            </title>
-            <h1>Welcome to my blog</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <br/>
-            <h2>All Posts</h2>
-            <br />
-            {posts.map((val:any,i:any) => {
-            return (
-                <Link to={val.attributes.urlSlug}>
-                    <div key={i} className="card">
-                        <h3>
-                            {val.attributes.title}
-                        </h3>
-                        <p>
-                            {val.attributes.description}
-                        </p>
-                    </div>
-                </Link>
-                
-            )})}
+            <div className="root">
+                <div className='comic'>
+                    <img src={ItWasADarkAndStormyNight} alt="It was a dark and stormy night..."/>
+                </div>
+                {posts.map((val:any,i:any) => {
+                return (
+                    <Link to={val.attributes.urlSlug} className="link">
+                        <div key={i} className="card">
+                            <div className="card-num">
+                               No. {i + 1}
+                            </div>
+                            <div className="card-title">
+                                {val.attributes.title}
+                            </div>
+                            <div className="card-date">{val.attributes.date}</div>
+                        </div>
+                    </Link>
+                    
+                )})}
+            </div>
             <PageFlip />
         </>
     )
