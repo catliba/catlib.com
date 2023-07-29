@@ -1,20 +1,19 @@
-body {
-    display: flex;
-    align-items: start;
-    overflow: auto;
-    background-color: aliceblue;
-}
-.root {
+.blogs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 0;
-    
+    background-color: #82a7b0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
 }
 
 .comic {
-    margin: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
@@ -29,13 +28,18 @@ body {
     width: 750px;
     box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    background-color: rgb(247, 247, 238);
-    border:solid 4px #41403E;
+    background-color: #776b65;
+    border:solid 4px #000000;
     transition:all .5s ease;
+    color: black;
 }
 
 .card:hover {
     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+}
+
+.link {
+    text-decoration: none;
 }
 
 .card-num {

@@ -1,14 +1,10 @@
-body {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 /* RETURN BUTTON */
 .return {
-    font-size: 5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 3rem;
+    padding: 1rem;
 }
 
 .symbol {
@@ -17,23 +13,45 @@ body {
 
 /*SLIDES*/
 .slides {
+    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    flex-wrap: wrap;
 }
-.comic-header {
-    max-width: 150%;
+.slides button {
+    padding: 3rem;
+    background: transparent;
+    font-size: 3rem;
 }
-.return {
-    left: 0;
+
+/* START PANEL */
+.start-panel {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 6px #41403E;
 }
 .title {
-    font-size: 5rem;
-
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-top: 5rem;
 }
+.comic-header img{
+    max-width: 100vw;
+    margin: 5rem;
+}
+
+
+/* TEXT */
 .text-body {
+    margin: 20px;
+    padding: 20px;
     font-size: 1.5rem;
-    background-color: aqua;
+    background-color: white;
     padding: 2rem;
-    border-radius: 5px;
+    max-width: 30vw;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 6px #41403E;
 }

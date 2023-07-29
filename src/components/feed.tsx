@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import ReactMarkdown from 'react-markdown';
 import '../css/feed.css'
-import {GiReturnArrow} from 'react-icons/gi'
+import {GiReturnArrow, GiPreviousButton, GiNextButton} from 'react-icons/gi'
 
 const GET_INDIVIDUAL_POST = gql`
 query ($slugUrl: String!) {
@@ -63,24 +63,24 @@ export default function Post() {
             <GiReturnArrow />
           </Link>
       </div>
-      <div className="title">
-        {blogPost.title}
-      </div>
-      <div className="slides">
+      <div className="slides">  
+        <button onClick={prevSlide}><GiPreviousButton/></button>
         {currentSlide === -1 ? 
           (<div className='start-panel'>
+            <div className="title">
+              {blogPost.title}
+            </div>
             <div className="comic-header">
-                <img src={"http://localhost:1337" + comicStrip}/>
+              <img src={"http://localhost:1337" + comicStrip}/>
             </div>
           </div>)
           :
           (<div className='text-body'>
-          <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
+            <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
           </div>)
-        } 
+        }
+        <button onClick={nextSlide}><GiNextButton/></button>
       </div>
-      <button onClick={prevSlide}>Previous</button>
-      <button onClick={nextSlide}>Next</button>
     </>
   )
 }

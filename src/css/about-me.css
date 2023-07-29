@@ -3,27 +3,14 @@
   src: url('../fonts/American-Typewriter-Regular.ttf');
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0; 
-  overflow: hidden;
-  background: white;
-}
-
-body {
+.homepage {
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: American Typewriter;
-  background: white;
-  margin: 0;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
-
 .heading {
   position: absolute;
-  top: 10vh;
   left: 50%;
   font-size: 3rem;
   transform: translate(-50%, -50%);
@@ -35,7 +22,7 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
   white-space: nowrap;
 }
 
@@ -125,7 +112,6 @@ body {
 /* CONTACTS */
 .contacts {
   display: flex;
-  position: absolute;
   justify-content: center;
   margin: 0px;
   width: 100%;
