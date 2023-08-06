@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
 import { useQuery, gql } from '@apollo/client/';
@@ -47,7 +47,6 @@ query getData {
 `
 export default function AboutMe() {
     const {loading, error, data} = useQuery(INTRO);
-    const [panelFour, setPanelFour] = useState<number>(0);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import PageFlip from './page-flip';
 import '../css/blog.css';
 import { useQuery, gql } from '@apollo/client';
