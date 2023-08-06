@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
 import { useQuery, gql } from '@apollo/client/';
@@ -33,6 +33,13 @@ query getData {
               }
             }
           }
+          cat {
+            data {
+                attributes {
+                    url
+                }
+            }
+          }
         }
       }
     }
@@ -40,7 +47,7 @@ query getData {
 `
 export default function AboutMe() {
     const {loading, error, data} = useQuery(INTRO);
-    console.log(data);
+    const [panelFour, setPanelFour] = useState<number>(0);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -63,6 +70,8 @@ export default function AboutMe() {
     const contactImages = data?.homepage.data.attributes.contact.data.map((image:any) => image.attributes.url);
     //here is a single image so ...caleb.data is an Object
     const profile = data?.homepage.data.attributes.caleb.data.attributes.url;
+    const cat = data?.homepage.data.attributes.cat.data.attributes.url;
+    console.log(cat)
     //not here though, thus [0] required
     //later on when I add my hobbies I will map it
     const hobby = data?.homepage.data.attributes.hobbies.data[0].attributes.url;
@@ -75,16 +84,17 @@ export default function AboutMe() {
                     </h1>
                     <p>
                         things left to do on this page: slideshow for 3rd and 4th panel <br/>
-                        change descriptions <br/>
                         add captions to third and fourth panel <br/>
-                        get rid of rightside scroll (view don't get rid of the scroll itself) when animated
                     </p>
                 </div>
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
                     <div className='about-me'>
                         <img src={backdrop} className='background'/>
-                        <span>Hi</span>
+                        <div className="first-panel">
+                            <span>Hi!</span>
+                            <img className='cat' src={cat}/>
+                        </div>
                     </div>
                     <div className='caption'>
                         <img src={backdrop} className='background'/>
@@ -96,36 +106,40 @@ export default function AboutMe() {
                         <img src={backdrop} className='background'/>
                         <div className='watching'>
                             <h1>This is me:</h1>
-                            <img className='framed' src={"http://localhost:1337" + profile}/>
+                            <button>left</button>
+                            <button>right</button>
+                            <img className='framed' src={profile}/>
                         </div>
                     </div>
                     <div className='show'>
                         <img src={backdrop} className='background'/>
                         <div className='reading'>
                             <h1>I like to:</h1>
-                            <img  className='framed' src={"http://localhost:1337" + hobby}/>
+                            <button>left</button>
+                            <button>right</button>
+                            <img className='framed' src={hobby}/>
                         </div>
                     </div>
                 </div>
                 <div className='contacts'>
                         <div className='logos'>
-                            <a className='logo hidden' href="https://friend.chess.com/LQznr">
-                                <img src={"http://localhost:1337" + contactImages[0]} />
+                            <a className='logo hidden' href="mailto:1caleblili@gmail.com">
+                                <img src={contactImages[0]} />
                             </a>
                             <a className='logo hidden' href="https://www.linkedin.com/in/li-caleb/">
-                                <img src={"http://localhost:1337" + contactImages[1]} />
+                                <img src={contactImages[3]} />
                             </a>
                             <a className='logo hidden' href="https://www.instagram.com/calebl1/">
-                                <img src={"http://localhost:1337" + contactImages[2]} />
+                                <img src={contactImages[5]} />
                             </a>
                             <a className='logo hidden' href="https://open.spotify.com/user/1caleblili?si=01260313e24f464e">
-                                <img src={"http://localhost:1337" + contactImages[3]} />
+                                <img src={contactImages[2]} />
                             </a>
-                            <a className='logo hidden' href="mailto:1caleblili@gmail.com">
-                                <img src={"http://localhost:1337" + contactImages[4]} />
+                            <a className='logo hidden' href="https://friend.chess.com/LQznr">
+                                <img src={contactImages[1]} />
                             </a>
                             <a className='logo hidden' href="https://t.snapchat.com/VDbK9l3r">
-                                <img src={"http://localhost:1337" + contactImages[5]} />
+                                <img src={contactImages[4]} />
                             </a>
                         </div>
                     </div>

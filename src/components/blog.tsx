@@ -21,7 +21,7 @@ query getPost {
 
 export default function Blog() {
     const {loading, error, data} = useQuery(GET_ALL_POSTS);
-    const posts = data?.blogPosts.data;
+    
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -29,13 +29,15 @@ export default function Blog() {
     if (error) {
         return <p>Error: {error.message}</p>;
     }
+    const posts = data?.blogPosts.data;
+    const ascendingPosts = posts.slice().reverse();
     return (
         <>
             <div className="blogs">
                 <div className='comic'>
                     <img src={ItWasADarkAndStormyNight} alt="It was a dark and stormy night..."/>
                 </div>
-                {posts.map((val:any,i:any) => {
+                {ascendingPosts.map((val:any,i:any) => {
                 return (
                     <Link to={val.attributes.urlSlug} className="link">
                         <div key={i} className="card">
@@ -48,7 +50,6 @@ export default function Blog() {
                             <div className="card-date">{val.attributes.date}</div>
                         </div>
                     </Link>
-                    
                 )})}
             </div>
             <PageFlip />

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../css/page-flip.css';
 import { Link } from 'react-router-dom';
 import FlipPage from '../pngs/page-flip.png';
+import CatLink from '../pngs/link-cat.png';
+import PencilLink from '../pngs/link-pencil.png'
+import PdfLink from '../pngs/link-notes.png'
+import NotesLink from '../pngs/link-pdf.png'
 
 export default function PageFlip() {
-    const [isNavOpen, setIsNavOpen] = useState(false);
+    const [isNavOpen, setIsNavOpen] = useState(true);
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
     }
-
-    useEffect(() => {
-        setIsNavOpen(true);
-    }, []);
 
     return (
         <div className='nav'>
@@ -22,18 +22,18 @@ export default function PageFlip() {
                 :
                 (<ul className="nav-menu">
                     <li>
-                        <Link className="nav-option" to={`/aboutcatlib`}>About Me</Link>
+                        <Link className="nav-option delay-1" to={`/aboutcatlib`}><img className="link-button" src={CatLink}/></Link>
                     </li>
                     <li>
-                        <Link className="nav-option" to={`/notes`}>Notes</Link>
+                        <Link className="nav-option delay-2" to={`/notes`}><img className="link-button" src={PdfLink}/></Link>
                     </li>
                     <li>
-                        <Link className="nav-option" to={`/sheets`}>Sheets</Link>
+                        <Link className="nav-option delay-3" to={`/sheets`}><img className="link-button" src={NotesLink}/></Link>
                     </li>
                     <li>
-                        <Link className="nav-option" to={`/calendar`}>Calendar</Link>
+                        <Link className="nav-option delay-4" to={`/calendar`}><img className="link-button" src={PencilLink}/></Link>
                     </li>
-                    <button onClick={toggleNav}>
+                    <button className="nav-toggle" onClick={toggleNav}>
                             <img src={FlipPage} alt="."/>
                     </button>
                 </ul>)

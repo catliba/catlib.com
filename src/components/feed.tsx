@@ -4,6 +4,7 @@ import { gql, useQuery } from '@apollo/client';
 import ReactMarkdown from 'react-markdown';
 import '../css/feed.css'
 import {GiReturnArrow, GiPreviousButton, GiNextButton} from 'react-icons/gi'
+import { motion } from "framer-motion"
 
 const GET_INDIVIDUAL_POST = gql`
 query ($slugUrl: String!) {
@@ -53,7 +54,6 @@ export default function Post() {
   const blogPost = data.blogPosts.data[0].attributes;
   const blogBody: string = blogPost.content;
   const sections: string[] = (blogBody.match(/(?:^|\n)##\s+(.*(?:\n(?!## ).+)*)/g) || []) as string[];
-  console.log(sections);
   const comicStrip = blogPost.strip.data.attributes.url;
 
   return (
@@ -64,14 +64,16 @@ export default function Post() {
           </Link>
       </div>
       <div className="slides">  
-        <button onClick={prevSlide}><GiPreviousButton/></button>
+      <motion.button 
+          onClick={prevSlide}
+          whileTap={{scale:0.5}}><GiPreviousButton/></motion.button>
         {currentSlide === -1 ? 
           (<div className='start-panel'>
             <div className="title">
               {blogPost.title}
             </div>
             <div className="comic-header">
-              <img src={"http://localhost:1337" + comicStrip}/>
+              <img src={comicStrip}/>
             </div>
           </div>)
           :
@@ -79,7 +81,9 @@ export default function Post() {
             <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
           </div>)
         }
-        <button onClick={nextSlide}><GiNextButton/></button>
+        <motion.button 
+          onClick={nextSlide}
+          whileTap={{scale:0.5}}><GiNextButton/></motion.button>
       </div>
     </>
   )

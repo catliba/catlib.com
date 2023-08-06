@@ -12,7 +12,7 @@ import Feed from './components/feed'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
 const client = new ApolloClient({
-  uri : 'http://localhost:1337/graphql',
+  uri : 'https://oyster-app-t2ytw.ondigitalocean.app/graphql',
   cache : new InMemoryCache()
 })
 
