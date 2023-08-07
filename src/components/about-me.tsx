@@ -79,19 +79,15 @@ export default function AboutMe() {
             <div className='homepage'>
                 <div>
                     <h1 className='heading'>
-                        About me:
+                        About:
                     </h1>
-                    <p>
-                        things left to do on this page: slideshow for 3rd and 4th panel <br/>
-                        add captions to third and fourth panel <br/>
-                    </p>
                 </div>
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
                     <div className='about-me'>
                         <img src={backdrop} className='background'/>
                         <div className="first-panel">
-                            <span>Hi!</span>
+                            <span>Hi</span>
                             <img className='cat' src={cat}/>
                         </div>
                     </div>

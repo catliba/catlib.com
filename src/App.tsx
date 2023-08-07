@@ -4,9 +4,6 @@ import LogoClick from './pngs/Logo_Click.png'
 import LogoHover from './pngs/Logo_Hover.png'
 import Logo from './pngs/Logo_Start.png'
 import { Link } from 'react-router-dom'
-import { motion } from "framer-motion"
-
-// This page will feature the page flip introduction animation
 
 function App() {
   const [logoImage, setLogoImage] = useState(Logo);

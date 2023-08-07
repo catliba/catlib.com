@@ -1,8 +1,5 @@
 .nav {
-    position: fixed;
-    flex-shrink: 0;
-    bottom: 0px;
-    right: 0px;
+    margin-left: auto;
 }
 
 .nav-toggle {
@@ -17,7 +14,7 @@
 
 .nav-menu {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     position: relative;
     bottom: -6px;
