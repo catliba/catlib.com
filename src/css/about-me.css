@@ -18,7 +18,7 @@
 }
 .content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 5%;
@@ -65,7 +65,8 @@
 }
 
 .cat {
-  max-width: 80%;
+  position: absolute;
+  width: 500px;
 }
 
 /* Caption */
@@ -79,12 +80,13 @@
 
 .caption p {
   position: absolute;
-  max-width: 60%;
-  overflow: hidden;
+  max-width: 25%;
+  max-height: 60%;
+  overflow: auto;
   white-space: normal;
   word-wrap: break-word;
-  font-size: large;
   line-height: 1.5;
+  font-size: large;
 }
 
 
@@ -99,6 +101,11 @@
 .show h1 {
   top: 0%;
   font-size: 1rem;
+}
+.left-right-buttons {
+  display: flex;
+  justify-content: center;
+  max-width: 650px;
 }
 .watching {
   display: flex;
@@ -212,9 +219,32 @@
   transform: translateX(0);
 }
 
-@media all and (max-width < 650px) {
+@media (max-width : 650px) {
   .content {
     flex-direction: column;
     overflow-y: auto;
+  }
+
+  .cat {
+    width: 325px;
+  }
+
+  .background {
+    width: 400px;
+  }
+}
+
+@media (max-width : 400px) {
+  .content {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .cat {
+    width: 275px;
+  }
+
+  .background {
+    width: 350px;
   }
 }

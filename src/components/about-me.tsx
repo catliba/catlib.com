@@ -100,19 +100,23 @@ export default function AboutMe() {
                     <div className='show'>
                         <img src={backdrop} className='background'/>
                         <div className='watching'>
-                            <h1>This is me:</h1>
-                            <button>left</button>
-                            <button>right</button>
-                            <img className='framed' src={profile}/>
+                            <h1>Me:</h1>
+                            <div className='left-right-buttons'>
+                                <button>left</button>
+                                <img className='framed' src={profile}/>
+                                <button>right</button>
+                            </div>
                         </div>
                     </div>
                     <div className='show'>
                         <img src={backdrop} className='background'/>
                         <div className='reading'>
                             <h1>I like to:</h1>
-                            <button>left</button>
-                            <button>right</button>
-                            <img className='framed' src={hobby}/>
+                            <div className='left-right-buttons'>
+                                <button>left</button>
+                                <img className='framed' src={hobby}/>
+                                <button>right</button>
+                            </div>
                         </div>
                     </div>
                 </div>
