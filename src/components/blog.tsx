@@ -50,8 +50,8 @@ export default function Blog() {
                         </div>
                     </Link>
                 )})}
+                <PageFlip />
             </div>
-            <PageFlip />
         </>
     )
 }

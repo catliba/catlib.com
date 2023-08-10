@@ -38,6 +38,9 @@ export default function Post() {
   const nextSlide = () => {
     if (currentSlide < sections.length - 1) {
       setCurrentSlide(currentSlide + 1)
+      window.scrollTo({
+        top: 0
+      })
     }
   }
 

@@ -31,6 +31,7 @@
 
 .plane-scroller {
   position: fixed;
+  top: 0;
   left: 0;
   max-height: 10%;
   animation: plane 3s linear forwards;

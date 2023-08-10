@@ -15,11 +15,9 @@
 .slides {
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-direction: row;
     margin: 0 auto;
-    flex-wrap: wrap;
 }
 .slides button {
     padding: 3rem;
@@ -38,8 +36,8 @@
     font-size: 2rem;
     margin-top: 5rem;
 }
+
 .comic-header img{
-    max-width: 100vw;
     margin: 5rem;
 }
 
@@ -55,4 +53,34 @@
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     border:solid 6px #41403E;
     line-height: 1.5;
+}
+
+@media (max-width : 1200px) {
+    .text-body {
+        max-width: 50vw;
+    }
+}
+
+@media (max-width : 650px) {
+    .text-body {
+        max-width: 70vw;
+    }
+
+    .return {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width : 375px) {
+    .return {
+        font-size: 2rem;
+    }
+
+    .text-body {
+        max-width: 90vw;
+    }
+
+    .slides button {
+        font-size: 2rem;
+    }
 }

@@ -4,7 +4,6 @@
 
 .nav-toggle {
     position: relative;
-    bottom: -6px;
     background-color: transparent;
     cursor: pointer;
     border: transparent;
@@ -17,8 +16,6 @@
     flex-direction: row;
     align-items: center;
     position: relative;
-    bottom: -6px;
-    right:-4px;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -42,21 +39,21 @@
     animation-delay: 0s;
 }
 
-.delay-2 {
+/* .delay-2 {
     animation-delay: 0.5s;
 }
 
 .delay-3 {
     animation-delay: 1s;
-}
+} */
 
 .delay-4 {
-    animation-delay: 1.5s;
+    animation-delay: .3s;
 }
 
 @keyframes pop {
     0% { 
-        transform: translateY(200%);
+        transform: translateX(200%);
         opacity: 0;
     }
     100% { 

@@ -16,6 +16,10 @@
     justify-content: center;
 }
 
+.comic img {
+    max-width: 80%;
+}
+
 .card {
     display: flex;
     flex-direction: row;
@@ -58,4 +62,54 @@
     bottom: 0;
     right: 0;
     padding-right: .5rem;
+}
+
+@media (max-width : 850px) {
+    .card {
+        width: 500px;
+    }
+
+    .card-num {
+        font-size: 2rem;
+        margin-right: 1rem;
+    }
+    
+}
+
+@media (max-width : 650px) {
+    .card {
+        width: 400px;
+    }
+
+    .card-num {
+        font-size: 2rem;
+        margin-right: 1rem;
+    }
+    
+}
+
+@media (max-width : 500px) {
+    .card {
+        width: 300px;
+    }
+
+    .card-num {
+        font-size: 2rem;
+        margin-right: 0rem;
+    }
+}
+
+@media (max-width : 450px) {
+    .card {
+        width: 200px;
+    }
+
+    .card-num {
+        font-size: 1.5rem;
+        min-width: 80px;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
 }

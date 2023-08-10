@@ -78,9 +78,6 @@ export default function AboutMe() {
         <>
             <div className='homepage'>
                 <div>
-                    <h1 className='heading'>
-                        About:
-                    </h1>
                 </div>
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
