@@ -118,27 +118,25 @@ export default function AboutMe() {
                     </div>
                 </div>
                 <div className='contacts'>
-                        <div className='logos'>
-                            <a className='logo hidden' href="mailto:1caleblili@gmail.com">
-                                <img src={contactImages[0]} />
-                            </a>
-                            <a className='logo hidden' href="https://www.linkedin.com/in/li-caleb/">
-                                <img src={contactImages[3]} />
-                            </a>
-                            <a className='logo hidden' href="https://www.instagram.com/calebl1/">
-                                <img src={contactImages[5]} />
-                            </a>
-                            <a className='logo hidden' href="https://open.spotify.com/user/1caleblili?si=01260313e24f464e">
-                                <img src={contactImages[2]} />
-                            </a>
-                            <a className='logo hidden' href="https://friend.chess.com/LQznr">
-                                <img src={contactImages[1]} />
-                            </a>
-                            <a className='logo hidden' href="https://t.snapchat.com/VDbK9l3r">
-                                <img src={contactImages[4]} />
-                            </a>
-                        </div>
-                    </div>
+                    <a className='logo hidden' href="mailto:1caleblili@gmail.com">
+                        <img src={contactImages[0]} />
+                    </a>
+                    <a className='logo hidden' href="https://www.linkedin.com/in/li-caleb/">
+                        <img src={contactImages[3]} />
+                    </a>
+                    <a className='logo hidden' href="https://www.instagram.com/calebl1/">
+                        <img src={contactImages[5]} />
+                    </a>
+                    <a className='logo hidden' href="https://t.snapchat.com/VDbK9l3r">
+                        <img src={contactImages[4]} />
+                    </a>
+                    <a className='logo hidden' href="https://open.spotify.com/user/1caleblili?si=01260313e24f464e">
+                        <img src={contactImages[2]} />
+                    </a>
+                    <a className='logo hidden' href="https://friend.chess.com/LQznr">
+                        <img src={contactImages[1]} />
+                    </a>
+                </div>
                 <PageFlip />
             </div>
         </>

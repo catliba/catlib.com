@@ -9,6 +9,7 @@
   display: flex;
   overflow-x: hidden;
   flex-direction: column;
+  align-items: center;
 }
 .heading {
   display: flex;
@@ -81,7 +82,7 @@
 
 .caption p {
   position: absolute;
-  max-width: 25%;
+  max-width: 25vh;
   max-height: 60%;
   overflow: auto;
   white-space: normal;
@@ -138,20 +139,9 @@
 .contacts {
   display: flex;
   justify-content: center;
-  margin: 0px;
-  width: 100%;
-  bottom: 0;
-}
-
-.contacts .logos {
-  width: 80%;
-  display: flex;
   align-items: center;
-  justify-content: space-around;
-}
-
-.contacts a img {
-  max-width: 100%;
+  flex-wrap: wrap;
+  max-width: 50%;
 }
 
 .logo:nth-child(2) {

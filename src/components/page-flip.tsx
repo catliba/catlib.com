@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import FlipPage from '../pngs/page-flip.png';
 import CatLink from '../pngs/link-cat.png';
 import PencilLink from '../pngs/link-pencil.png'
-import PdfLink from '../pngs/link-notes.png'
-import NotesLink from '../pngs/link-pdf.png'
+//import PdfLink from '../pngs/link-notes.png'
+//import NotesLink from '../pngs/link-pdf.png'
 
 /* For future
                     <li>

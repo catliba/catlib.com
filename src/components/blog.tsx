@@ -29,14 +29,14 @@ export default function Blog() {
         return <p>Error: {error.message}</p>;
     }
     const posts = data?.blogPosts.data;
-    const ascendingPosts = posts.slice().reverse();
+    //const ascendingPosts = posts.slice().reverse();
     return (
         <>
             <div className="blogs">
                 <div className='comic'>
                     <img src={ItWasADarkAndStormyNight} alt="It was a dark and stormy night..."/>
                 </div>
-                {ascendingPosts.map((val:any,i:any) => {
+                {posts.map((val:any,i:any) => {
                 return (
                     <Link to={val.attributes.urlSlug} className="link">
                         <div key={i} className="card">

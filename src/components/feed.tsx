@@ -30,14 +30,18 @@ console.log(GET_INDIVIDUAL_POST)
 export default function Post() {
   
   const [currentSlide, setCurrentSlide] = useState<number>(-1);
+  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
+
   const prevSlide = () => {
     if (currentSlide > -1) {
       setCurrentSlide(currentSlide - 1)
+      setDirection('right')
     }
   }
   const nextSlide = () => {
     if (currentSlide < sections.length - 1) {
       setCurrentSlide(currentSlide + 1)
+      setDirection('left');
       window.scrollTo({
         top: 0
       })
@@ -80,9 +84,15 @@ export default function Post() {
             </div>
           </div>)
           :
-          (<div className='text-body'>
-            <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
-          </div>)
+          (<motion.div 
+            className={`text-body ${direction === 'left' ? 'left-slide' : 'right-slide'}`}
+            key={currentSlide}
+            initial={{ opacity: 0, x: direction === 'left' ? 200 : -200 }}
+            animate={{ opacity: 1, x: 0 }} 
+            exit={{ opacity: 0, x: direction === 'left' ? -200 : 200 }}
+            transition={{ duration: .5, ease: 'easeInOut' }}>
+              <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
+          </motion.div>)
         }
         <motion.button 
           onClick={nextSlide}
