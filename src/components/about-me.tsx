@@ -5,6 +5,7 @@ import { useQuery, gql } from '@apollo/client/';
 //import Slideshow from './slideshow'
 import plane from '../pngs/paperairplane.png'
 import backdrop from '../pngs/Untitled_Artwork.png'
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
 const INTRO = gql`
 query getData {
@@ -99,9 +100,9 @@ export default function AboutMe() {
                         <div className='watching'>
                             <h1>Me:</h1>
                             <div className='left-right-buttons'>
-                                <button>left</button>
+                                <button><AiOutlineLeft /></button>
                                 <img className='framed' src={profile}/>
-                                <button>right</button>
+                                <button><AiOutlineRight /></button>
                             </div>
                         </div>
                     </div>
@@ -110,9 +111,9 @@ export default function AboutMe() {
                         <div className='reading'>
                             <h1>I like to:</h1>
                             <div className='left-right-buttons'>
-                                <button>left</button>
+                                <button><AiOutlineLeft /></button>
                                 <img className='framed' src={hobby}/>
-                                <button>right</button>
+                                <button><AiOutlineRight /></button>
                             </div>
                         </div>
                     </div>
