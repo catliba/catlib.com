@@ -76,6 +76,10 @@
         font-size: 2rem;
     }
 
+    .comic-header img{
+        max-width: 100vw;
+    }
+
     .text-body {
         max-width: 90vw;
     }

@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <AboutMe />
   },
   {
-    path: "/calendar",
+    path: "/best-day-of-my-life",
     element: <Calendar />
   },
   {
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     element: <ClassNotes />
   },
   {
-    path: "/calendar/:urlSlug",
+    path: "/best-day-of-my-life/:urlSlug",
     element: <Feed />
   }
 ]);

@@ -66,7 +66,7 @@ export default function Post() {
   return (
     <>
       <div className="return">
-          <Link to={"/calendar"} className='symbol'>
+          <Link to={"/best-day-of-my-life"} className='symbol'>
             <GiReturnArrow />
           </Link>
       </div>

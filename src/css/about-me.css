@@ -82,7 +82,7 @@
 
 .caption p {
   position: absolute;
-  max-width: 25vh;
+  max-width: 60%;
   max-height: 60%;
   overflow: auto;
   white-space: normal;
@@ -151,7 +151,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   max-width: 50%;
 }
 
@@ -234,6 +233,8 @@
   .background {
     width: 400px;
   }
+
+
 }
 
 @media (max-width : 400px) {

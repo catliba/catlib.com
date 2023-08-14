@@ -1,4 +1,4 @@
-import { useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
 import { useQuery, gql } from '@apollo/client/';
@@ -48,6 +48,8 @@ query getData {
 `
 export default function AboutMe() {
     const {loading, error, data} = useQuery(INTRO);
+    const [me, setMe] = useState<number>(0);
+    const [iliketo, setiliketo] = useState<number>(0);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -63,18 +65,37 @@ export default function AboutMe() {
         hiddenElements.forEach((el) => observer.observe(el));
     },)
 
+    const nextSlide = () => {
+        if (me < profile.length - 1) {
+            setMe(me + 1)
+        }
+    }
+    const prevSlide = () => {
+        if (me > 0) {
+            setMe(me - 1)
+        }
+    }
+
+    const nextHobSlide = () => {
+        if (iliketo < hobby.length - 1) {
+            setiliketo(iliketo + 1)
+        }
+    }
+    const prevHobSlide = () => {
+        if (iliketo > 0) {
+            setiliketo(iliketo - 1)
+        }
+    }
+    
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
   
     const contactImages = data?.homepage.data.attributes.contact.data.map((image:any) => image.attributes.url);
-    //here is a single image so ...caleb.data is an Object
-    const profile = data?.homepage.data.attributes.caleb.data.attributes.url;
+    const profile = data?.homepage.data.attributes.caleb.data;
     const cat = data?.homepage.data.attributes.cat.data.attributes.url;
-    console.log(cat)
-    //not here though, thus [0] required
-    //later on when I add my hobbies I will map it
-    const hobby = data?.homepage.data.attributes.hobbies.data[0].attributes.url;
+    const hobby = data?.homepage.data.attributes.hobbies.data;
+    
     return (
         <>
             <div className='homepage'>
@@ -100,9 +121,9 @@ export default function AboutMe() {
                         <div className='watching'>
                             <h1>Me:</h1>
                             <div className='left-right-buttons'>
-                                <button><AiOutlineLeft /></button>
-                                <img className='framed' src={profile}/>
-                                <button><AiOutlineRight /></button>
+                                <button onClick={prevSlide}><AiOutlineLeft /></button>
+                                <img className='framed' src={profile[me].attributes.url}/>
+                                <button onClick={nextSlide}><AiOutlineRight /></button>
                             </div>
                         </div>
                     </div>
@@ -111,9 +132,9 @@ export default function AboutMe() {
                         <div className='reading'>
                             <h1>I like to:</h1>
                             <div className='left-right-buttons'>
-                                <button><AiOutlineLeft /></button>
-                                <img className='framed' src={hobby}/>
-                                <button><AiOutlineRight /></button>
+                                <button onClick={prevHobSlide}><AiOutlineLeft /></button>
+                                <img className='framed' src={hobby[iliketo].attributes.url}/>
+                                <button onClick={nextHobSlide}><AiOutlineRight /></button>
                             </div>
                         </div>
                     </div>

@@ -17,23 +17,28 @@ import PencilLink from '../pngs/link-pencil.png'
 */
 export default function PageFlip() {
     const [isNavOpen, setIsNavOpen] = useState(true);
+    const [pageHelp, setPageHelp] = useState(true);
     const toggleNav = () => {
+        setPageHelp(false);
         setIsNavOpen(!isNavOpen);
     }
 
     return (
         <div className='nav'>
             {isNavOpen ? 
-                (<button className="nav-toggle" onClick={toggleNav}>
+                (<>
+                { pageHelp ? <div className='helper'>Flip me!</div> : (<></>)}
+                <button className="nav-toggle" onClick={toggleNav}>
                     <img src={FlipPage} alt="."/>
-                </button>)
+                </button>
+                </>)
                 :
                 (<ul className="nav-menu">
                     <li>
                         <Link className="nav-option delay-1" to={`/aboutcatlib`}><img className="link-button" src={CatLink}/></Link>
                     </li>
                     <li>
-                       <Link className="nav-option delay-4" to={`/calendar`}><img className="link-button" src={PencilLink}/></Link>
+                       <Link className="nav-option delay-4" to={`/best-day-of-my-life`}><img className="link-button" src={PencilLink}/></Link>
                     </li>
                     <button className="nav-toggle" onClick={toggleNav}>
                             <img src={FlipPage} alt="."/>

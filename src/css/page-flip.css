@@ -30,9 +30,14 @@
     position: relative;
     display: inline-block;
     animation-name: pop;
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-fill-mode: both;
     animation-direction: normal;
+}
+
+.helper {
+    transform: rotateZ(315deg);
+    transform-origin: center;
 }
 
 .delay-1 {
@@ -48,7 +53,7 @@
 } */
 
 .delay-4 {
-    animation-delay: .3s;
+    animation-delay: .1s;
 }
 
 @keyframes pop {
