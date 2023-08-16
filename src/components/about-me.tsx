@@ -99,8 +99,7 @@ export default function AboutMe() {
     return (
         <>
             <div className='homepage'>
-                <div>
-                </div>
+                <PageFlip />
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
                     <div className='about-me'>
@@ -159,7 +158,6 @@ export default function AboutMe() {
                         <img src={contactImages[1]} />
                     </a>
                 </div>
-                <PageFlip />
             </div>
         </>
     )

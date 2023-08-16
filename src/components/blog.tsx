@@ -1,8 +1,8 @@
-import PageFlip from './page-flip';
 import '../css/blog.css';
 import { useQuery, gql } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import ItWasADarkAndStormyNight from '../pngs/a742803651b99a3eec9633fbaa644711.jpg'
+import {GiReturnArrow} from 'react-icons/gi'
 
 const GET_ALL_POSTS = gql`
 query getPost {
@@ -33,6 +33,11 @@ export default function Blog() {
     return (
         <>
             <div className="blogs">
+                <div className="return">
+                    <Link to={"/aboutcatlib"} className='symbol'>
+                        <GiReturnArrow />
+                    </Link>
+                </div>
                 <div className='comic'>
                     <img src={ItWasADarkAndStormyNight} alt="It was a dark and stormy night..."/>
                 </div>
@@ -50,7 +55,6 @@ export default function Blog() {
                         </div>
                     </Link>
                 )})}
-                <PageFlip />
             </div>
         </>
     )

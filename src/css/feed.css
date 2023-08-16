@@ -59,13 +59,18 @@
     .text-body {
         max-width: 50vw;
     }
+    .comic-header img{
+        max-width: 100vw;
+    }
 }
 
 @media (max-width : 650px) {
     .text-body {
         max-width: 70vw;
     }
-
+    .comic-header img{
+        max-width: 100vw;
+    }
     .return {
         font-size: 2rem;
     }

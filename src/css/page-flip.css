@@ -1,8 +1,9 @@
 .nav {
     margin-left: auto;
+    transform: rotate(270deg);
 }
 
-.nav-toggle {
+/* .nav-toggle {
     position: relative;
     background-color: transparent;
     cursor: pointer;
@@ -33,24 +34,24 @@
     animation-duration: .5s;
     animation-fill-mode: both;
     animation-direction: normal;
-}
+} */
 
 .helper {
-    transform: rotateZ(315deg);
-    transform-origin: center;
+    margin-left: auto;
+    transform: translateX(-55px) translateY(-25px) rotateZ(45deg);
 }
 
-.delay-1 {
+/* .delay-1 {
     animation-delay: 0s;
 }
 
-/* .delay-2 {
+.delay-2 {
     animation-delay: 0.5s;
 }
 
 .delay-3 {
     animation-delay: 1s;
-} */
+}
 
 .delay-4 {
     animation-delay: .1s;
@@ -65,4 +66,4 @@
         transform: translateX(0%);
         opacity: 1;
     }
-}
+} */
