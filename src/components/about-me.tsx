@@ -5,7 +5,7 @@ import { useQuery, gql } from '@apollo/client/';
 //import Slideshow from './slideshow'
 import plane from '../pngs/paperairplane.png'
 import backdrop from '../pngs/Untitled_Artwork.png'
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+import { AiOutlineLeft, AiOutlineRight,AiOutlineArrowRight } from 'react-icons/ai'
 
 const INTRO = gql`
 query getData {
@@ -102,6 +102,9 @@ export default function AboutMe() {
                 <PageFlip />
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
+                    {(/Android|iPhone/i.test(navigator.userAgent)) ? (
+                        <div>Scroll right! <AiOutlineArrowRight/></div>
+                    ):(<div></div>)}
                     <div className='about-me'>
                         <img src={backdrop} className='background'/>
                         <div className="first-panel">
@@ -129,7 +132,7 @@ export default function AboutMe() {
                     <div className='show'>
                         <img src={backdrop} className='background'/>
                         <div className='reading'>
-                            <h1>I like to:</h1>
+                            <h1>I like:</h1>
                             <div className='left-right-buttons'>
                                 <button onClick={prevHobSlide}><AiOutlineLeft /></button>
                                 <img className='framed' src={hobby[iliketo].attributes.url}/>
@@ -156,6 +159,9 @@ export default function AboutMe() {
                     </a>
                     <a className='logo hidden' href="https://friend.chess.com/LQznr">
                         <img src={contactImages[1]} />
+                    </a>
+                    <a className='logo hidden' href="https://github.com/catliba">
+                        <img className='github' src={contactImages[6]} />
                     </a>
                 </div>
             </div>

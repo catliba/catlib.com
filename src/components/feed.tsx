@@ -70,8 +70,9 @@ export default function Post() {
             <GiReturnArrow />
           </Link>
       </div>
-      <div className="slides">  
-      <motion.button 
+      <div className="slides">
+        <motion.button
+          className='button-top'
           onClick={prevSlide}
           whileTap={{scale:0.5}}><GiPreviousButton/></motion.button>
         {currentSlide === -1 ? 
@@ -94,9 +95,10 @@ export default function Post() {
               <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
           </motion.div>)
         }
-        <motion.button 
-          onClick={nextSlide}
-          whileTap={{scale:0.5}}><GiNextButton/></motion.button>
+        <motion.button
+            className='button-bot' 
+            onClick={nextSlide}
+            whileTap={{scale:0.5}}><GiNextButton/></motion.button>
       </div>
     </>
   )

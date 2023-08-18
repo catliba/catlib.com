@@ -154,6 +154,10 @@
   max-width: 50%;
 }
 
+.github {
+  width: 85px;
+}
+
 .logo:nth-child(2) {
   transition-delay: 200ms;
 }
@@ -169,6 +173,9 @@
 }
 .logo:nth-child(6) {
   transition-delay: 1000ms;
+}
+.logo:nth-child(7) {
+  transition-delay: 1200ms;
 }
 
 @keyframes plane {

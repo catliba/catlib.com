@@ -13,18 +13,23 @@
 
 /*SLIDES*/
 .slides {
-    height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: 0 auto;
 }
-.slides button {
-    padding: 3rem;
+.button-top {
+    height: 100vh;
+    margin-left: 3rem;
+    margin-right: 3rem;
     background: transparent;
     font-size: 3rem;
 }
-
+.button-bot {
+    font-size: 3rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    background: transparent;
+}
 /* START PANEL */
 .start-panel {
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -58,9 +63,19 @@
 @media (max-width : 1200px) {
     .text-body {
         max-width: 50vw;
+        margin: 20px;
     }
     .comic-header img{
         max-width: 100vw;
+    }
+    .slides {
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button-top {
+        height: auto;
+        margin-top: 4rem;
     }
 }
 
