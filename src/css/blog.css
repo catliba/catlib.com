@@ -35,12 +35,13 @@
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     background-color: #776b65;
     border:solid 4px #000000;
-    transition:all .5s ease;
+    transition:all .3s ease;
     color: black;
 }
 
 .card:hover {
     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+    background-color: #615751;
 }
 
 .link {

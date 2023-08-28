@@ -70,36 +70,60 @@ export default function Post() {
             <GiReturnArrow />
           </Link>
       </div>
-      <div className="slides">
-        <motion.button
-          className='button-top'
-          onClick={prevSlide}
-          whileTap={{scale:0.5}}><GiPreviousButton/></motion.button>
         {currentSlide === -1 ? 
-          (<div className='start-panel'>
+          (<>
+          <div className="slides">
+          <motion.button
+            className='button-top'
+            onClick={prevSlide}
+            whileTap={{scale:0.5}}><GiPreviousButton/></motion.button>
+          <div className='start-panel'>
             <div className="title">
               {blogPost.title}
             </div>
             <div className="comic-header">
               <img src={comicStrip}/>
             </div>
-          </div>)
-          :
-          (<motion.div 
-            className={`text-body ${direction === 'left' ? 'left-slide' : 'right-slide'}`}
-            key={currentSlide}
-            initial={{ opacity: 0, x: direction === 'left' ? 200 : -200 }}
-            animate={{ opacity: 1, x: 0 }} 
-            exit={{ opacity: 0, x: direction === 'left' ? -200 : 200 }}
-            transition={{ duration: .5, ease: 'easeInOut' }}>
-              <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
-          </motion.div>)
-        }
-        <motion.button
+          </div>
+          <motion.button
             className='button-bot' 
             onClick={nextSlide}
-            whileTap={{scale:0.5}}><GiNextButton/></motion.button>
-      </div>
+            whileTap={{scale:0.5}}
+            whileHover={{color: '#7d0b00'}}><GiNextButton/></motion.button>
+          </div>
+          </>)
+          :
+          (<>
+            <div className='feed-interface'>
+              <div className='left-button-position'>
+                <motion.button
+                className='content-left'
+                onClick={prevSlide}
+                whileTap={{scale:0.5}}
+                whileHover={{color: '#7d0b00'}}><GiPreviousButton/></motion.button>
+              </div>
+              <div className="feed-content">
+                <div className='height-setter'></div>
+                <motion.div 
+                className={`text-body ${direction === 'left' ? 'left-slide' : 'right-slide'}`}
+                key={currentSlide}
+                initial={{ opacity: 0, x: direction === 'left' ? 200 : -200 }}
+                animate={{ opacity: 1, x: 0 }} 
+                exit={{ opacity: 0, x: direction === 'left' ? -200 : 200 }}
+                transition={{ duration: .4, ease: 'easeInOut' }}>
+                  <ReactMarkdown>{sections[currentSlide]}</ReactMarkdown>
+                </motion.div>
+              </div>
+              <div className='right-button-position'>
+                <motion.button
+                  className='content-right' 
+                  onClick={nextSlide}
+                  whileTap={{scale:0.5}}
+                  whileHover={{color: '#7d0b00'}}><GiNextButton/></motion.button>
+              </div>
+            </div>
+          </>)
+        }
     </>
   )
 }

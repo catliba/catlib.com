@@ -3,12 +3,17 @@
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 3rem;
     padding: 1rem;
 }
 
 .symbol {
+    transition: all .1s ease;
+    font-size: 3rem;
     color: black;
+}
+
+.symbol:hover {
+    color: rgb(227, 227, 227);
 }
 
 /*SLIDES*/
@@ -18,18 +23,50 @@
     align-items: center;
 }
 .button-top {
+    position: relative;
     height: 100vh;
     margin-left: 3rem;
     margin-right: 3rem;
     background: transparent;
     font-size: 3rem;
+    color: black;
 }
 .button-bot {
+    position: relative;
     font-size: 3rem;
     margin-left: 3rem;
     margin-right: 3rem;
     background: transparent;
+    color: black;
 }
+.content-left {
+    background: transparent;
+    font-size: 3rem;
+    position: fixed;
+    top: 50%;
+    left: 25%;
+    color: black;
+}
+.content-right {
+    background: transparent;
+    font-size: 3rem;
+    position: fixed;
+    right: 25%;
+    top: 50%;
+    color: black;
+}
+.feed-content {
+    display: flex;
+    align-items: center;
+}
+.height-setter {
+    height: 100vh;
+}
+.feed-interface {
+    display: flex;
+    flex-direction: row;
+}
+
 /* START PANEL */
 .start-panel {
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -49,6 +86,7 @@
 
 /* TEXT */
 .text-body {
+    position: relative;
     margin: 20px;
     padding: 20px;
     font-size: 1.5rem;
@@ -67,6 +105,26 @@
     }
     .comic-header img{
         max-width: 100vw;
+    }
+    .height-setter {
+        height: 0%;
+    }
+    .feed-interface {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .left-button-position {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content-left {
+        position: static;
+    }
+    .content-right {
+        position: static;
     }
     .slides {
         height: 100vh;
