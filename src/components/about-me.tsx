@@ -17,6 +17,7 @@ query getData {
             data {
               attributes {
                 url
+                caption
               }
             }
           }
@@ -38,6 +39,14 @@ query getData {
             data {
                 attributes {
                     url
+                }
+            }
+          }
+          concerts {
+            data {
+                attributes {
+                    url
+                    caption
                 }
             }
           }
@@ -90,12 +99,10 @@ export default function AboutMe() {
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
-  
     const contactImages = data?.homepage.data.attributes.contact.data.map((image:any) => image.attributes.url);
     const profile = data?.homepage.data.attributes.caleb.data;
     const cat = data?.homepage.data.attributes.cat.data.attributes.url;
     const hobby = data?.homepage.data.attributes.hobbies.data;
-    
     return (
         <>
             <div className='homepage'>
@@ -120,24 +127,26 @@ export default function AboutMe() {
                     </div>
                     <div className='show'>
                         <img src={backdrop} className='background'/>
-                        <div className='watching'>
-                            <h1>Me:</h1>
+                        <div className='reading'>
+                            <h1 className='pic-title'>Me:</h1>
                             <div className='left-right-buttons'>
                                 <button onClick={prevSlide}><AiOutlineLeft /></button>
                                 <img className='framed' src={profile[me].attributes.url}/>
                                 <button onClick={nextSlide}><AiOutlineRight /></button>
                             </div>
+                            <h1 className='capt'>{profile[me].attributes.caption}</h1>
                         </div>
                     </div>
                     <div className='show'>
                         <img src={backdrop} className='background'/>
                         <div className='reading'>
-                            <h1>I like:</h1>
+                            <h1 className='pic-title'>I like:</h1>
                             <div className='left-right-buttons'>
                                 <button onClick={prevHobSlide}><AiOutlineLeft /></button>
                                 <img className='framed' src={hobby[iliketo].attributes.url}/>
                                 <button onClick={nextHobSlide}><AiOutlineRight /></button>
                             </div>
+                            <h1 className='capt'>{hobby[iliketo].attributes.caption}</h1>
                         </div>
                     </div>
                 </div>

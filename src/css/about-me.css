@@ -98,28 +98,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: swing 2s ease forwards;
 }
 .show h1 {
-  top: 0%;
   font-size: 1rem;
 }
+
 .left-right-buttons {
   display: flex;
   justify-content: center;
-  max-width: 650px;
+  align-items: center;
 }
+
 .left-right-buttons button {
   background: transparent;
   font-size: 2rem;
-}
-.watching {
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: max-content;
+  max-height: 40px;
 }
 
 .reading {
@@ -130,22 +123,26 @@
   justify-content: center;
 }
 
-.reading h1 {
-  margin-bottom: 35px;
-}
-.watching h1 {
-  margin-bottom: 35px;
-}
-
 .framed {
   rotate: 90deg;
-  max-width: 40%;
-  margin-top: 5%;
+  max-width: 50%;
   padding: 1%;
   box-shadow: inset 0 -3em 3em black,
   0 0 3px 10px rgb(233, 233, 233);
 }
 
+.sideways {
+  max-width: 256px;
+}
+.pic-title {
+  margin-bottom: 10%;
+}
+.capt {
+  margin-top: 10%;
+}
+.concert-buttons {
+  margin-top: 40px;
+}
 /* CONTACTS */
 .contacts {
   display: flex;

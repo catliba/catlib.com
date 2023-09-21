@@ -29,7 +29,25 @@ export default function Blog() {
         return <p>Error: {error.message}</p>;
     }
     const posts = data?.blogPosts.data;
-    //const ascendingPosts = posts.slice().reverse();
+    let earliest = new Array()
+    //let latest = new Array()
+    if (posts) {
+        earliest = [...posts].sort((a, b) => {
+          const dateA = new Date(a.attributes.date).getTime();
+          const dateB = new Date(b.attributes.date).getTime();
+          
+          return dateA - dateB;
+        });
+      }
+    // if (posts) {
+    // latest = [...posts].sort((a, b) => {
+    //     const dateA = new Date(a.attributes.date).getTime();
+    //     const dateB = new Date(b.attributes.date).getTime();
+        
+    //     return dateB - dateA;
+    //     });
+    // }
+
     return (
         <>
             <div className="blogs">
@@ -41,7 +59,7 @@ export default function Blog() {
                 <div className='comic'>
                     <img src={ItWasADarkAndStormyNight} alt="It was a dark and stormy night..."/>
                 </div>
-                {posts.map((val:any,i:any) => {
+                {earliest.map((val:any,i:any) => {
                 return (
                     <Link to={val.attributes.urlSlug} className="link">
                         <div key={i} className="card">
