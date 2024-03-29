@@ -16,7 +16,7 @@ query getData {
           hobbies {
             data {
               attributes {
-                url
+                url,
                 caption
               }
             }
@@ -42,14 +42,6 @@ query getData {
                 }
             }
           }
-          concerts {
-            data {
-                attributes {
-                    url
-                    caption
-                }
-            }
-          }
         }
       }
     }
@@ -59,7 +51,7 @@ export default function AboutMe() {
     const {loading, error, data} = useQuery(INTRO);
     const [me, setMe] = useState<number>(0);
     const [iliketo, setiliketo] = useState<number>(0);
-
+    console.log(data?.homepage.data.attributes.cat.data);
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -103,6 +95,8 @@ export default function AboutMe() {
     const profile = data?.homepage.data.attributes.caleb.data;
     const cat = data?.homepage.data.attributes.cat.data.attributes.url;
     const hobby = data?.homepage.data.attributes.hobbies.data;
+    console.log("working fine");
+
     return (
         <>
             <div className='homepage'>

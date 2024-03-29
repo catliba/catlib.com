@@ -8,12 +8,12 @@ import { motion } from "framer-motion"
 
 const GET_INDIVIDUAL_POST = gql`
 query ($slugUrl: String!) {
-  blogPosts(filters: {urlSlug: { eq: $slugUrl }}) {
+  strips(filters: {urlSlug: { eq: $slugUrl }}) {
     data {
       attributes {
         title
         content
-        strip {
+        comic {
           data {
             attributes {
               url
@@ -58,10 +58,11 @@ export default function Post() {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
-  const blogPost = data.blogPosts.data[0].attributes;
+  console.log(data.strips.data[0].attributes);
+  const blogPost = data.strips.data[0].attributes;
   const blogBody: string = blogPost.content;
   const sections: string[] = (blogBody.match(/(?:^|\n)##\s+(.*(?:\n(?!## ).+)*)/g) || []) as string[];
-  const comicStrip = blogPost.strip.data.attributes.url;
+  const comicStrip = blogPost.comic.data.attributes.url;
 
   return (
     <>

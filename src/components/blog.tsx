@@ -5,12 +5,12 @@ import ItWasADarkAndStormyNight from '../pngs/a742803651b99a3eec9633fbaa644711.j
 import {GiReturnArrow} from 'react-icons/gi'
 
 const GET_ALL_POSTS = gql`
-query getPost {
-    blogPosts {
+query Q {
+    strips {
       data {
         attributes {
-          title
-          urlSlug
+          title,
+          urlSlug,
           date
         }
       }
@@ -20,7 +20,7 @@ query getPost {
 
 export default function Blog() {
     const {loading, error, data} = useQuery(GET_ALL_POSTS);
-    
+    console.log(data?.strips.data);
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -28,7 +28,7 @@ export default function Blog() {
     if (error) {
         return <p>Error: {error.message}</p>;
     }
-    const posts = data?.blogPosts.data;
+    const posts = data?.strips.data;
     let earliest = new Array()
     //let latest = new Array()
     if (posts) {
