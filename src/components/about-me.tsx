@@ -51,7 +51,6 @@ export default function AboutMe() {
     const {loading, error, data} = useQuery(INTRO);
     const [me, setMe] = useState<number>(0);
     const [iliketo, setiliketo] = useState<number>(0);
-    console.log(data?.homepage.data.attributes.cat.data);
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -95,7 +94,7 @@ export default function AboutMe() {
     const profile = data?.homepage.data.attributes.caleb.data;
     const cat = data?.homepage.data.attributes.cat.data.attributes.url;
     const hobby = data?.homepage.data.attributes.hobbies.data;
-    console.log("working fine");
+    console.log(cat);
 
     return (
         <>
@@ -110,7 +109,7 @@ export default function AboutMe() {
                         <img src={backdrop} className='background'/>
                         <div className="first-panel">
                             <span>Hi</span>
-                            <img className='cat' src={cat}/>
+                            <img className='cat' src={cat} alt='Cat Image' />
                         </div>
                     </div>
                     <div className='caption'>
@@ -122,10 +121,10 @@ export default function AboutMe() {
                     <div className='show'>
                         <img src={backdrop} className='background'/>
                         <div className='reading'>
-                            <h1 className='pic-title'>Me:</h1>
+                            <h1>Me:</h1>
                             <div className='left-right-buttons'>
                                 <button onClick={prevSlide}><AiOutlineLeft /></button>
-                                <img className='framed' src={profile[me].attributes.url}/>
+                                <img className='normal-framed' src={profile[me].attributes.url}/>
                                 <button onClick={nextSlide}><AiOutlineRight /></button>
                             </div>
                             <h1 className='capt'>{profile[me].attributes.caption}</h1>

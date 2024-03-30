@@ -66,6 +66,63 @@
     padding-right: .5rem;
 }
 
+.toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-button {
+    background-color: #776b65;
+    border: 2px solid #2a1c06;
+    border-radius: 30px;
+    box-shadow: #2a1c06 4px 4px 0 0;
+    color: #1c1406;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 5%;
+}
+  
+.toggle-button:hover {
+    background-color: #615751;
+  }
+  
+.toggle-button:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
+
+.active {
+    background-color: #615751;
+    border: 2px solid #2a1c06;
+    border-radius: 30px;
+    color: #1c1406;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 5%;
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
+
 @media (max-width : 850px) {
     .card {
         width: 500px;
@@ -114,4 +171,12 @@
     .card-title {
         font-size: 1rem;
     }
+}
+
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
 }
