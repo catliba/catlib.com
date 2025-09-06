@@ -1,3 +1,19 @@
+// Import all images as modules for proper Vite bundling
+import catImage from '../pngs/Untitled_Artwork_769fcb7b9d.jpg';
+import caleb1 from '../pngs/IMG_9107_fe24a0e19d.jpg';
+import caleb2 from '../pngs/IMG_1143_c706c4403a.jpg';
+import caleb3 from '../pngs/IMG_5622_036de2924c.jpg';
+import hobby1 from '../pngs/looking_at_screen_part_2_3ec148b2bd.jpg';
+import hobby2 from '../pngs/ILOVEREADING_416390ebee.jpg';
+import hobby3 from '../pngs/IMG_7212_0e462ebcaa.jpg';
+import emailIcon from '../pngs/icons8_email_100_0f9583bc28.png';
+import linkedinIcon from '../pngs/icons8_linkedin_100_cf099daa56.png';
+import instagramIcon from '../pngs/icons8_instagram_160_547d468f9b.png';
+import snapchatIcon from '../pngs/icons8_snapchat_100_86847988dc.png';
+import spotifyIcon from '../pngs/icons8_spotify_96_6cc95d36e9.png';
+import chessIcon from '../pngs/icons8_chess_com_96_1e87c88e3f.png';
+import githubIcon from '../pngs/githubicon_b9671a2611.png';
+
 export interface ImageData {
   url: string;
   caption?: string;
@@ -21,20 +37,20 @@ export interface HomepageImages {
 
 export const homepageImages: HomepageImages = {
   // Cat image
-  cat: "/src/pngs/Untitled_Artwork_769fcb7b9d.jpg",
+  cat: catImage,
   
   // Profile photos (caleb)
   caleb: [
     {
-      url: "/src/pngs/IMG_9107_fe24a0e19d.jpg",
+      url: caleb1,
       caption: "sleeping"
     },
     {
-      url: "/src/pngs/IMG_1143_c706c4403a.jpg", 
+      url: caleb2, 
       caption: ""
     },
     {
-      url: "/src/pngs/IMG_5622_036de2924c.jpg",
+      url: caleb3,
       caption: ""
     }
   ],
@@ -42,28 +58,28 @@ export const homepageImages: HomepageImages = {
   // Hobby images
   hobbies: [
     {
-      url: "/src/pngs/looking_at_screen_part_2_3ec148b2bd.jpg",
+      url: hobby1,
       caption: "looking at screen."
     },
     {
-      url: "/src/pngs/ILOVEREADING_416390ebee.jpg", 
+      url: hobby2, 
       caption: "READING!"
     },
     {
-      url: "/src/pngs/IMG_7212_0e462ebcaa.jpg",
+      url: hobby3,
       caption: "losing money."
     }
   ],
   
   // Contact icons (social media)
   contact: {
-    email: "/src/pngs/icons8_email_100_0f9583bc28.png",
-    linkedin: "/src/pngs/icons8_linkedin_100_cf099daa56.png", 
-    instagram: "/src/pngs/icons8_instagram_160_547d468f9b.png",
-    snapchat: "/src/pngs/icons8_snapchat_100_86847988dc.png",
-    spotify: "/src/pngs/icons8_spotify_96_6cc95d36e9.png",
-    chess: "/src/pngs/icons8_chess_com_96_1e87c88e3f.png",
-    github: "/src/pngs/githubicon_b9671a2611.png"
+    email: emailIcon,
+    linkedin: linkedinIcon, 
+    instagram: instagramIcon,
+    snapchat: snapchatIcon,
+    spotify: spotifyIcon,
+    chess: chessIcon,
+    github: githubIcon
   },
   
   // Introduction text
