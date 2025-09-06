@@ -1,4 +1,3 @@
-import PageFlip from './page-flip';
 import '../css/sheet-music.css';
 
 export default function SheetMusic() {
@@ -7,7 +6,6 @@ export default function SheetMusic() {
             <div className='App'>
                 Working on it!
             </div>
-            <PageFlip />
         </>
     )
 }

@@ -1,56 +1,15 @@
 import { useEffect, useState } from 'react';
 import PageFlip from './page-flip';
 import '../css/about-me.css';
-import { useQuery, gql } from '@apollo/client/';
-//import Slideshow from './slideshow'
+import { homepageImages } from '../config/images';
 import plane from '../pngs/paperairplane.png'
 import backdrop from '../pngs/Untitled_Artwork.png'
 import { AiOutlineLeft, AiOutlineRight,AiOutlineArrowRight } from 'react-icons/ai'
 
-const INTRO = gql`
-query getData {
-    homepage {
-      data {
-        attributes {
-          introduction
-          hobbies {
-            data {
-              attributes {
-                url,
-                caption
-              }
-            }
-          }
-          caleb {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          contact {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          cat {
-            data {
-                attributes {
-                    url
-                }
-            }
-          }
-        }
-      }
-    }
-  }
-`
 export default function AboutMe() {
-    const {loading, error, data} = useQuery(INTRO);
     const [me, setMe] = useState<number>(0);
     const [iliketo, setiliketo] = useState<number>(0);
+    
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -66,7 +25,7 @@ export default function AboutMe() {
     },)
 
     const nextSlide = () => {
-        if (me < profile.length - 1) {
+        if (me < homepageImages.caleb.length - 1) {
             setMe(me + 1)
         }
     }
@@ -77,7 +36,7 @@ export default function AboutMe() {
     }
 
     const nextHobSlide = () => {
-        if (iliketo < hobby.length - 1) {
+        if (iliketo < homepageImages.hobbies.length - 1) {
             setiliketo(iliketo + 1)
         }
     }
@@ -86,15 +45,16 @@ export default function AboutMe() {
             setiliketo(iliketo - 1)
         }
     }
-    
-    if (loading) return 'Loading...';
-    if (error) return `Error! ${error.message}`;
 
-    const contactImages = data?.homepage.data.attributes.contact.data.map((image:any) => image.attributes.url);
-    const profile = data?.homepage.data.attributes.caleb.data;
-    const cat = data?.homepage.data.attributes.cat.data.attributes.url;
-    const hobby = data?.homepage.data.attributes.hobbies.data;
-    console.log(cat);
+    const contactImages = [
+        homepageImages.contact.email,
+        homepageImages.contact.chess,
+        homepageImages.contact.spotify,
+        homepageImages.contact.linkedin,
+        homepageImages.contact.snapchat,
+        homepageImages.contact.instagram,
+        homepageImages.contact.github
+    ];
 
     return (
         <>
@@ -109,13 +69,13 @@ export default function AboutMe() {
                         <img src={backdrop} className='background'/>
                         <div className="first-panel">
                             <span>Hi</span>
-                            <img className='cat' src={cat} alt='Cat Image' />
+                            <img className='cat' src={homepageImages.cat} alt='Cat Image' />
                         </div>
                     </div>
                     <div className='caption'>
                         <img src={backdrop} className='background'/>
                         <p> 
-                            {data?.homepage.data.attributes.introduction}
+                            {homepageImages.introduction}
                         </p>
                     </div>
                     <div className='show'>
@@ -124,10 +84,10 @@ export default function AboutMe() {
                             <h1>Me:</h1>
                             <div className='left-right-buttons'>
                                 <button onClick={prevSlide}><AiOutlineLeft /></button>
-                                <img className='normal-framed' src={profile[me].attributes.url}/>
+                                <img className='normal-framed' src={homepageImages.caleb[me].url}/>
                                 <button onClick={nextSlide}><AiOutlineRight /></button>
                             </div>
-                            <h1 className='capt'>{profile[me].attributes.caption}</h1>
+                            <h1 className='capt'>{homepageImages.caleb[me].caption}</h1>
                         </div>
                     </div>
                     <div className='show'>
@@ -136,10 +96,10 @@ export default function AboutMe() {
                             <h1 className='pic-title'>I like:</h1>
                             <div className='left-right-buttons'>
                                 <button onClick={prevHobSlide}><AiOutlineLeft /></button>
-                                <img className='framed' src={hobby[iliketo].attributes.url}/>
+                                <img className='framed' src={homepageImages.hobbies[iliketo].url}/>
                                 <button onClick={nextHobSlide}><AiOutlineRight /></button>
                             </div>
-                            <h1 className='capt'>{hobby[iliketo].attributes.caption}</h1>
+                            <h1 className='capt'>{homepageImages.hobbies[iliketo].caption}</h1>
                         </div>
                     </div>
                 </div>

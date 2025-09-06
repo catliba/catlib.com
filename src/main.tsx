@@ -7,14 +7,8 @@ import ErrorPage from './err.tsx'
 import AboutMe from './components/about-me.tsx'
 import Calendar from './components/blog.tsx'
 import SheetMusic from './components/sheet-music'
-import ClassNotes from './components/class-notes'
-import Feed from './components/feed'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
-
-const client = new ApolloClient({
-  uri : 'https://catlieb-df347bf0623e.herokuapp.com/graphql',
-  cache : new InMemoryCache()
-})
+import Paris from './components/paris.tsx'
+import Feed from './components/feed.tsx'
 
 const router = createBrowserRouter([
   {
@@ -35,19 +29,17 @@ const router = createBrowserRouter([
     element: <SheetMusic />
   },
   {
-    path: "/notes",
-    element: <ClassNotes />
+    path: "/paris",
+    element: <Paris />
   },
   {
     path: "/life/:urlSlug",
     element: <Feed />
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ApolloProvider client={client} >
-      <RouterProvider router={router} />
-    </ApolloProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Zeyada';
+    src: url('../fonts/Zeyada-Regular.ttf');
+  }
+
+.birthday {
+    font-family: Zeyada;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 192, 203, 0.534);
+  }
+
+.start {
+    background-color: white;
+    height: 100vh;
+}
+
+.cake {
+    max-width: 20%;
+}
+
+.wishes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+}
+
+.wishes h1 {
+    font-size: 5em;
+    color: rgb(255, 118, 187);
+}
+
+.rilakkuma {
+    
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+    background-color: rgba(255, 251, 245, 0.765);
+    padding: 3%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10%;
+}
+
+.message h3 {
+    font-size: 1em;
+}
+.sprinkles {
+    max-width: 35%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #FBE4E0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    background-image: linear-gradient(312.25deg, #FFC4BC 0%,     rgba(255, 255, 255, 0) 66.19%);
+    box-shadow: 0 40px 80px #FBE4E0;
+}

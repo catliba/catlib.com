@@ -1,36 +1,29 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { gql, useQuery } from '@apollo/client';
 import ReactMarkdown from 'react-markdown';
 import '../css/feed.css'
 import {GiReturnArrow, GiPreviousButton, GiNextButton} from 'react-icons/gi'
 import { motion } from "framer-motion"
-
-const GET_INDIVIDUAL_POST = gql`
-query ($slugUrl: String!) {
-  strips(filters: {urlSlug: { eq: $slugUrl }}) {
-    data {
-      attributes {
-        title
-        content
-        comic {
-          data {
-            attributes {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`
-console.log(GET_INDIVIDUAL_POST)
+import { useBlogPost } from '../hooks/useBlogPosts';
 
 export default function Post() {
   
   const [currentSlide, setCurrentSlide] = useState<number>(-1);
   const [direction, setDirection] = useState<'left' | 'right' | null>(null);
+
+  const { urlSlug } = useParams();
+  const { post: blogPost, loading, error } = useBlogPost(urlSlug || '');
+  
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error || !blogPost) {
+    return <p>Error: {error || 'Blog post not found'}</p>;
+  }
+  
+  const blogBody: string = blogPost.content;
+  const sections: string[] = (blogBody.match(/(^|\n)## [\s\S]*?(?=(\n## |\Z))/g) || []);
+  const comicStrip = blogPost.comic || '';
 
   const prevSlide = () => {
     if (currentSlide > -1) {
@@ -48,21 +41,8 @@ export default function Post() {
     }
   }
 
-  const { urlSlug } = useParams();
-  const { loading, error, data } = useQuery(GET_INDIVIDUAL_POST, {
-    variables: { slugUrl: urlSlug },
-  });
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-  console.log(data.strips.data[0].attributes);
-  const blogPost = data.strips.data[0].attributes;
-  const blogBody: string = blogPost.content;
-  const sections: string[] = (blogBody.match(/(?:^|\n)##\s+(.*(?:\n(?!## ).+)*)/g) || []) as string[];
-  const comicStrip = blogPost.comic.data.attributes.url;
+  console.log(sections);
+  console.log(blogBody);
 
   return (
     <>

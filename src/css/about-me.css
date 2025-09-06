@@ -126,8 +126,7 @@
 }
 
 .framed {
-  rotate: 90deg;
-  max-width: 50%;
+  max-width: 35%;
   padding: 1%;
   box-shadow: inset 0 -3em 3em black,
   0 0 3px 10px rgb(233, 233, 233);
@@ -143,12 +142,7 @@
 .sideways {
   max-width: 256px;
 }
-.pic-title {
-  margin-bottom: 10%;
-}
-.capt {
-  margin-top: 10%;
-}
+
 .concert-buttons {
   margin-top: 40px;
 }
