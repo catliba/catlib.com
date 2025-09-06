@@ -4,8 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-# Disable Next.js plugin
+# Disable Next.js plugin and use Vite build
 [build.processing]
   skip_processing = false
 
@@ -16,6 +17,10 @@
 [build.processing.js]
   bundle = true
   minify = true
+
+# Ensure we're not using Next.js
+[context.production.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 [[redirects]]
   from = "/*"
