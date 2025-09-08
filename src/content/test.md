@@ -2,7 +2,7 @@
 title: "CATLIEB.com"
 urlSlug: "catlieb-origins"
 date: "2024-01-25"
-comic: "/src/pngs/cake.jpg"
+comic: "src/pngs/comics/it-was-a-dark-and-stormy-night.webp"
 ---
 
 ## Hello World

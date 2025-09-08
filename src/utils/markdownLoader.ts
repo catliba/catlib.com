@@ -1,23 +1,51 @@
 import { marked } from 'marked';
 
-// Preload image assets from `src/pngs` and expose as URL strings so Vite resolves them
-const imageModules = import.meta.glob('../pngs/*', {
+// Preload image assets from `src/pngs` (including subfolders) and expose as URL strings so Vite resolves them
+const imageModules = import.meta.glob('../pngs/**', {
   eager: true,
   as: 'url'
 }) as Record<string, string>;
 
+// Build a quick filename -> url index to allow simple references like "cake.jpg"
+const fileNameToUrl = (() => {
+  const index = new Map<string, string>();
+  for (const [key, url] of Object.entries(imageModules)) {
+    const name = key.split('/').pop();
+    if (name && !index.has(name)) {
+      index.set(name, url);
+    }
+  }
+  return index;
+})();
+
+function normalizeToGlobKey(rawPath: string): string | undefined {
+  // Remove leading './' or '/'
+  let p = rawPath.replace(/^\.\/?/, '').replace(/^\//, '');
+  // Accept starting with 'src/'
+  if (p.startsWith('src/')) {
+    p = p.slice('src/'.length);
+  }
+  // We expect paths relative to this file's glob root '../pngs/**'
+  if (p.startsWith('pngs/')) {
+    return `../${p}`;
+  }
+  if (p.startsWith('src/pngs/')) {
+    return `../${p.slice('src/'.length)}`;
+  }
+  return undefined;
+}
+
 function resolveComicUrl(rawPath?: string): string | undefined {
   if (!rawPath) return undefined;
-  // Accept values like "/src/pngs/cake.jpg" or "../pngs/cake.jpg" or just "cake.jpg"
+  // 1) Try exact path resolution (handles nested folders)
+  const exactKey = normalizeToGlobKey(rawPath);
+  if (exactKey && imageModules[exactKey]) return imageModules[exactKey];
+
+  // 2) Try filename-only resolution as a convenience
   const fileName = rawPath.split('/').pop();
-  if (!fileName) return undefined;
-  const possibleKeys = [
-    `../pngs/${fileName}`
-  ];
-  for (const key of possibleKeys) {
-    if (imageModules[key]) return imageModules[key];
-  }
-  // Fallback to the raw path if we didn't find a match
+  if (fileName && fileNameToUrl.has(fileName)) return fileNameToUrl.get(fileName);
+
+  // 3) Fallback to rawPath (browser may still load if absolute/public)
   return rawPath;
 }
 
