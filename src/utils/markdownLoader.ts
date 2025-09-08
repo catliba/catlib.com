@@ -1,5 +1,26 @@
 import { marked } from 'marked';
 
+// Preload image assets from `src/pngs` and expose as URL strings so Vite resolves them
+const imageModules = import.meta.glob('../pngs/*', {
+  eager: true,
+  as: 'url'
+}) as Record<string, string>;
+
+function resolveComicUrl(rawPath?: string): string | undefined {
+  if (!rawPath) return undefined;
+  // Accept values like "/src/pngs/cake.jpg" or "../pngs/cake.jpg" or just "cake.jpg"
+  const fileName = rawPath.split('/').pop();
+  if (!fileName) return undefined;
+  const possibleKeys = [
+    `../pngs/${fileName}`
+  ];
+  for (const key of possibleKeys) {
+    if (imageModules[key]) return imageModules[key];
+  }
+  // Fallback to the raw path if we didn't find a match
+  return rawPath;
+}
+
 export interface BlogPost {
   title: string;
   urlSlug: string;
@@ -37,7 +58,7 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
           urlSlug: frontmatter.urlSlug,
           date: frontmatter.date,
           content: markdownContent,
-          comic: frontmatter.comic
+          comic: resolveComicUrl(frontmatter.comic)
         });
   
       } catch (parseError) {
