@@ -9,6 +9,7 @@ import Calendar from './components/blog.tsx'
 import SheetMusic from './components/sheet-music'
 import Paris from './components/paris.tsx'
 import Feed from './components/feed.tsx'
+import PokerTracker from './components/poker-tracker.tsx'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/life/:urlSlug",
     element: <Feed />
+  },
+  {
+    path: "/poker",
+    element: <PokerTracker />
   },
 ]);
 

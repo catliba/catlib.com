@@ -41,9 +41,6 @@ export default function Post() {
     }
   }
 
-  console.log(sections);
-  console.log(blogBody);
-
   return (
     <>
       <div className="return">

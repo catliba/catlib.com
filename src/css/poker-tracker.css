@@ -1,0 +1,80 @@
+.poker {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.poker .title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.poker .back {
+  text-decoration: none;
+  color: #333;
+}
+
+.poker h1 { margin: 0; }
+
+.totals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.totals > div {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.pos { color: #0c7a28; }
+.neg { color: #a11212; }
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.form .row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 120px;
+  gap: 12px;
+  align-items: end;
+}
+.form label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.form input, .form select { height: 34px; padding: 4px 8px; }
+.form .notes { grid-column: span 2; }
+.form .add { height: 34px; }
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  padding: 8px 6px;
+}
+.table .delete {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #a11212;
+}
+.notes-cell { max-width: 240px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+.empty { text-align: center; color: #666; padding: 12px 0; }
+
+@media (max-width: 800px) {
+  .form .row { grid-template-columns: 1fr 1fr; }
+  .form .notes { grid-column: span 2; }
+}
+
+
