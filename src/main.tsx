@@ -26,10 +26,6 @@ const router = createBrowserRouter([
     element: <Calendar />
   },
   {
-    path: "/sheets",
-    element: <SheetMusic />
-  },
-  {
     path: "/paris",
     element: <Paris />
   },
