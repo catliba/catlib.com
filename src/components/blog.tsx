@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ItWasADarkAndStormyNight from '../pngs/a742803651b99a3eec9633fbaa644711.jpg';
 import { GiReturnArrow } from 'react-icons/gi';
 import { useAllBlogPosts } from '../hooks/useBlogPosts';
+import PageFlip from './page-flip';
 
 export default function Blog() {
   const { posts, loading, error } = useAllBlogPosts();
@@ -47,6 +48,7 @@ export default function Blog() {
             <GiReturnArrow />
           </Link>
         </div>
+        <PageFlip dir='/poker' message='Keep flipping!'/>
         <div className='comic'>
           <img src={ItWasADarkAndStormyNight} alt="It was a dark and stormy night..." />
         </div>
