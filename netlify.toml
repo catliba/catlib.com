@@ -5,6 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  SECRETS_SCAN_OMIT_KEYS = "VITE_SUPABASE_URL,VITE_SUPABASE_ANON_KEY"
 
 # Disable Next.js plugin and use Vite build
 [build.processing]
