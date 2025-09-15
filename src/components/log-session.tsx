@@ -10,15 +10,12 @@ export default function LogSession({ onSessionAdded, onCancel }: LogSessionProps
     const [location, setLocation] = useState('')
     const [buyin, setBuyin] = useState('')
     const [cashout, setCashout] = useState('')
+    const [hour, setHour] = useState<number>(0)
     const [formError, setFormError] = useState<string | null>(null)
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-        if (!location || !buyin || !cashout) {
-            setFormError("Please fill in all fields")
-            return
-        }
 
         setIsSubmitting(true)
         setFormError(null)
@@ -29,7 +26,8 @@ export default function LogSession({ onSessionAdded, onCancel }: LogSessionProps
                 .insert([{
                     location: location,
                     in: parseFloat(buyin),
-                    out: parseFloat(cashout)
+                    out: parseFloat(cashout),
+                    hours: hour
                 }])
                 .select()
 
@@ -79,6 +77,16 @@ export default function LogSession({ onSessionAdded, onCancel }: LogSessionProps
                     id="cashout"
                     value={cashout}
                     onChange={(e) => setCashout(e.target.value)}
+                    placeholder="0"
+                    step="0.01"
+                />
+
+                <label htmlFor="hours">Hours Played:</label>
+                <input
+                    type="number"
+                    id="hours"
+                    value={hour}
+                    onChange={(e) => setHour(parseFloat(e.target.value))}
                     placeholder="0"
                     step="0.01"
                 />
