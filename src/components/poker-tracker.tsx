@@ -8,6 +8,9 @@ import PokerCat from '../pngs/pokerstatssplash.png'
 import {GiReturnArrow} from 'react-icons/gi'
 
 // idea: when  clicking into screen splash page gives two cards that represent a possible poker hand randomly
+// to do: sort by location, w/l, etc
+// categorize location
+// design better
 
 type SessionRow = {
   id: string;
@@ -15,6 +18,7 @@ type SessionRow = {
   location: string;
   in: number;
   out: number;
+  hours: number;
 };
 
   export default function PokerTracker() {
@@ -40,7 +44,7 @@ type SessionRow = {
     const fetchSessions = async () => {
       const { data, error } = await supabase
         .from('sesh')
-        .select('id, created_at, location, in, out')
+        .select('id, created_at, location, in, out, hours')
         .order('created_at', { ascending: false })
       if (error) {
         setFetchError('Error fetching sessions');
@@ -84,34 +88,30 @@ type SessionRow = {
 
   const totals = {
     profit: sessions.reduce((sum, s) => sum + (s.out - s.in), 0),
-    invested: sessions.reduce((sum, s) => sum + s.in, 0),
+    total_hours: sessions.reduce((sum, s) => sum + s.hours, 0),
   };
 
   const currency = (n: number) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 
   return (
     <div className="poker">
-      <div className="title">
       <div className="return">
           <Link to={"/life"} className='symbol'>
             <GiReturnArrow />
           </Link>
       </div>
-        <h1>Poker Tracker v1</h1>
         <img src={PokerCat} alt="SplashArt" className="pokercat" />
-        <div className="spacer" />
+       
         <div className="auth-controls">
           {user ? (
             <>
-              <span className="user-info">Welcome, {user.email}</span>
-              <button className="secondary" onClick={handleLogout}>Logout</button>
-              <button className="primary" onClick={handleLogSessionClick}>Log Session</button>
+              <button className="toggle-button-2" onClick={handleLogout}>Logout</button>
+              <button className="toggle-button-2" onClick={handleLogSessionClick}>Add Session</button>
             </>
           ) : (
-            <button className="primary" onClick={handleLogSessionClick}>Log Session</button>
+            <button className="toggle-button-2" onClick={handleLogSessionClick}>Add Session</button>
           )}
         </div>
-      </div>
 
       {fetchError && (
         <div style={{ background: '#ffebee', color: '#c62828', padding: '12px', borderRadius: '8px', margin: '16px 0' }}>
@@ -121,7 +121,7 @@ type SessionRow = {
 
       <div className="totals">
         <div><span>PNL</span><strong className={totals.profit >= 0 ? 'pos' : 'neg'}>{currency(totals.profit)}</strong></div>
-        <div><span>Total Invested</span><strong>{currency(totals.invested)}</strong></div>
+        <div><span>Total Hours</span><strong>{totals.total_hours}</strong></div>
         <div>page still a wip</div>
       </div>
 
@@ -133,8 +133,8 @@ type SessionRow = {
               <th>Location</th>
               <th>In</th>
               <th>Out</th>
+              <th>Hours</th>
               <th>Profit</th>
-              <th></th>
             </tr>
           </thead>
             <tbody>
@@ -144,6 +144,7 @@ type SessionRow = {
                   <td>{session.location}</td>
                   <td>{currency(session.in)}</td>
                   <td>{currency(session.out)}</td>
+                  <td>{session.hours}</td>
                   <td className={(session.out - session.in) >= 0 ? 'pos' : 'neg'}>
                     {currency(session.out - session.in)}
                   </td>
@@ -166,7 +167,7 @@ type SessionRow = {
               ))}
             </tbody>
           </table>
-          {sessions.length === 0 && <div className="empty">No sessions logged.</div>}
+          {sessions.length === 0 && <div className="empty">LOADING.......</div>}
         </div>
 
         {showLogForm && (

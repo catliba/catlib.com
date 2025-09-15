@@ -42,7 +42,7 @@ export default function Auth({ onLogin, onClose }: AuthProps) {
             <div className="auth-card">
                 <button className="close-btn" onClick={onClose}>×</button>
                 <div className="auth-header">
-                <h2>Admin Login</h2>
+                <h2>Catlib Authentication</h2>
                 <p>Can I run good for once please</p>
                 </div>
                 <form onSubmit={handleLogin} className="auth-form">
