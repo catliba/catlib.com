@@ -9,6 +9,8 @@ import Calendar from './components/blog.tsx'
 import Paris from './components/paris.tsx'
 import Feed from './components/feed.tsx'
 import PokerTracker from './components/poker-tracker.tsx'
+import Notes from './components/notes.tsx'
+import NoteDetail from './components/note-detail.tsx'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
     path: "/poker",
     element: <PokerTracker />
   },
+  {
+    path: "/notes",
+    element: <Notes />
+  },
+  {
+    path: "/notes/:slug",
+    element: <NoteDetail />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
