@@ -137,35 +137,35 @@ type SessionRow = {
               <th>Profit</th>
             </tr>
           </thead>
-            <tbody>
-              {sessions && sessions.map((session: SessionRow) => (
-                <tr key={session.id}>
-                  <td>{new Date(session.created_at).toLocaleDateString("en-US")}</td>
-                  <td>{session.location}</td>
-                  <td>{currency(session.in)}</td>
-                  <td>{currency(session.out)}</td>
-                  <td>{session.hours}</td>
-                  <td className={(session.out - session.in) >= 0 ? 'pos' : 'neg'}>
-                    {currency(session.out - session.in)}
-                  </td>
-                  <td>
-                    {user && (
-                      <button className="delete" onClick={async () => {
-                        if (confirm('Delete this session?')) {
-                          const { error } = await supabase
-                            .from('sesh')
-                            .delete()
-                            .eq('id', session.id);
-                          if (!error) {
-                            setSessions(sessions.filter(s => s.id !== session.id));
-                          }
+          <tbody>
+            {sessions && sessions.map((session: SessionRow) => (
+              <tr key={session.id}>
+                <td>{new Date(session.created_at).toLocaleDateString("en-US")}</td>
+                <td>{session.location}</td>
+                <td>{currency(session.in)}</td>
+                <td>{currency(session.out)}</td>
+                <td>{session.hours}</td>
+                <td className={(session.out - session.in) >= 0 ? 'pos' : 'neg'}>
+                  {currency(session.out - session.in)}
+                </td>
+                <td>
+                  {user && (
+                    <button className="delete" onClick={async () => {
+                      if (confirm('Delete this session?')) {
+                        const { error } = await supabase
+                          .from('sesh')
+                          .delete()
+                          .eq('id', session.id);
+                        if (!error) {
+                          setSessions(sessions.filter(s => s.id !== session.id));
                         }
-                      }}>Delete</button>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+                      }
+                    }}>Delete</button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
           </table>
           {sessions.length === 0 && <div className="empty">LOADING.......</div>}
         </div>
