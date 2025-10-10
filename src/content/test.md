@@ -31,3 +31,6 @@ I'm writing this two days later after deploying my backend and boy was it rough.
 ## Conclusion
 Welp. That's it for this strip. I know how exciting "HTML, CSS, Javascript" and "Deployment" is, but I won't blame you if you skipped through those parts. \
 Also, the reason why the domain is catlieb.com and not catlib.com is because the domain name for catlib.com costs $4000+. One day I'll buy it, but for now, catlieb will do. I also intend on adding a comment feature. As for my posting frequency, I'm aiming for once a week, but if the urge to share something ever surfaces, I will just post without caring too much about staying on a set schedule. Thanks for reading, and I hope to see you again.
+
+## Filter
+Need to fix later

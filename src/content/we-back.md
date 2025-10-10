@@ -21,3 +21,6 @@ Now let me address the elephant in the room. The past year, I've been really int
 
 ## We’re… Back?
 However, is poker sustainable? Many people in my life say no, and I'm not one to shrug off advice from the people that love me. That is why I plan on taking a healthy break from the game I so love playing. It's going to be hard, but I think I can do it this time. In the meantime, I'll focus on more pressing responsibilities and possibly exploring other hobbies. Wish me luck, and see you next time. 
+
+## Filter
+Test
