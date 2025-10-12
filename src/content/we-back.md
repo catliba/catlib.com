@@ -11,7 +11,7 @@ It has been a while since I have decided to write something here. So much has ch
 With two years of not practicing the art of journalism, I hope I still got it in me to write something of value.
 
 ## Time Consumption
-The saying goes: "Time is money," and I agree. Time is money, but to quantify your life to how much money you make per hour is such a bleak way to live. Obviously, get a job, make money, support yourself and hopefully your family in the future. That is the path of life we all walk. But when I do what I love, time gets lost in between. I don't consider my time spent as a sacrifice, but rather an investment towards my future. 
+The saying goes: "Time is money," and I agree. Time is money, but to quantify your life to how much money you make per hour is such a bleak way to live. Obviously, get a job, make money, support yourself and hopefully your family in the future. That is the path of life we all walk. But when I do what I love, time gets lost in between. I don't consider my time spent as a sacrifice, but rather a byproduct.
 
 ## Interests 
 What is it that I love though? Is it sustainable? Obviously if I love doomscrolling on Instagram reels, its over for me, I'm probably not going to get anywhere in life. But what about other hobbies? Coding is obviously a lucrative hobby to have, if I enjoy doing that, then I'll probably get paid doing it down the line. If I love math, that also is promising. If I love music, I see potential in my future as well. I'm not saying that I like or dislike any of the things I just listed, but perhaps some have started to grow on me with my old age.

@@ -8,6 +8,8 @@ import { AiOutlineLeft, AiOutlineRight,AiOutlineArrowRight } from 'react-icons/a
 
 export default function AboutMe() {
     const [me, setMe] = useState<number>(0);
+    const [projIndex, setProjIndex] = useState<number>(0);
+    const [projImageIndex, setProjImageIndex] = useState<number>(0);
     const [iliketo, setiliketo] = useState<number>(0);
     
     useEffect(() => {
@@ -24,6 +26,30 @@ export default function AboutMe() {
         hiddenElements.forEach((el) => observer.observe(el));
     },)
 
+    const nextProjSlide = () => {
+        if (projIndex < homepageImages.projects.length - 1) {
+            setProjIndex(projIndex + 1)
+            setProjImageIndex(0) // Reset image index when changing projects
+        }
+    }
+    const prevProjSlide = () => {
+        if (projIndex > 0) {
+            setProjIndex(projIndex - 1)
+            setProjImageIndex(0) // Reset image index when changing projects
+        }
+    }
+    
+    const nextProjImage = () => {
+        const currentProject = homepageImages.projects[projIndex];
+        if (projImageIndex < currentProject.images.length - 1) {
+            setProjImageIndex(projImageIndex + 1)
+        }
+    }
+    const prevProjImage = () => {
+        if (projImageIndex > 0) {
+            setProjImageIndex(projImageIndex - 1)
+        }
+    }
     const nextSlide = () => {
         if (me < homepageImages.caleb.length - 1) {
             setMe(me + 1)
@@ -48,7 +74,6 @@ export default function AboutMe() {
 
     const contactImages = [
         homepageImages.contact.email,
-        homepageImages.contact.chess,
         homepageImages.contact.spotify,
         homepageImages.contact.linkedin,
         homepageImages.contact.snapchat,
@@ -77,6 +102,39 @@ export default function AboutMe() {
                         <p> 
                             {homepageImages.introduction}
                         </p>
+                    </div>
+                    <div className='about-me'>
+                        <img src={backdrop} className='background'/>
+                        <div className='reading'>
+                            <h1>Projects:</h1>
+                            <div className='left-right-buttons'>
+                                <button onClick={prevProjSlide}><AiOutlineLeft /></button>
+                                <div className='project-content'>
+                                    <h2 className='project-title'>{homepageImages.projects[projIndex].title}</h2>
+                                    <p className='project-description'>{homepageImages.projects[projIndex].description}</p>
+                                    {homepageImages.projects[projIndex].link && (
+                                        <a href={homepageImages.projects[projIndex].link} target="_blank" rel="noopener noreferrer" className='project-link'>
+                                            View Project →
+                                        </a>
+                                    )}
+                                </div>
+                                <button onClick={nextProjSlide}><AiOutlineRight /></button>
+                            </div>
+                            {homepageImages.projects[projIndex].images.length > 0 && (
+                                <div className='project-images'>
+                                    <div className='left-right-buttons'>
+                                        <button onClick={prevProjImage}><AiOutlineLeft /></button>
+                                        <div className='image-container'>
+                                            <img className='project-image' src={homepageImages.projects[projIndex].images[projImageIndex].url} alt={homepageImages.projects[projIndex].images[projImageIndex].caption}/>
+                                            {homepageImages.projects[projIndex].images[projImageIndex].caption && (
+                                                <p className='image-caption'>{homepageImages.projects[projIndex].images[projImageIndex].caption}</p>
+                                            )}
+                                        </div>
+                                        <button onClick={nextProjImage}><AiOutlineRight /></button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className='show'>
                         <img src={backdrop} className='background'/>
@@ -108,22 +166,19 @@ export default function AboutMe() {
                         <img src={contactImages[0]} />
                     </a>
                     <a className='logo hidden' href="https://www.linkedin.com/in/li-caleb/">
-                        <img src={contactImages[3]} />
-                    </a>
-                    <a className='logo hidden' href="https://www.instagram.com/calebl1/">
-                        <img src={contactImages[5]} />
-                    </a>
-                    <a className='logo hidden' href="https://t.snapchat.com/VDbK9l3r">
-                        <img src={contactImages[4]} />
-                    </a>
-                    <a className='logo hidden' href="https://open.spotify.com/user/1caleblili?si=01260313e24f464e">
                         <img src={contactImages[2]} />
                     </a>
-                    <a className='logo hidden' href="https://friend.chess.com/LQznr">
+                    <a className='logo hidden' href="https://www.instagram.com/calebl1/">
+                        <img src={contactImages[4]} />
+                    </a>
+                    <a className='logo hidden' href="https://t.snapchat.com/VDbK9l3r">
+                        <img src={contactImages[3]} />
+                    </a>
+                    <a className='logo hidden' href="https://open.spotify.com/user/1caleblili?si=01260313e24f464e">
                         <img src={contactImages[1]} />
                     </a>
                     <a className='logo hidden' href="https://github.com/catliba">
-                        <img className='github' src={contactImages[6]} />
+                        <img className='github' src={contactImages[5]} />
                     </a>
                 </div>
             </div>
