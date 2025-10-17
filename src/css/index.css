@@ -21,3 +21,17 @@ button {
     color: #213547;
   }
 }
+
+/* Hide horizontal scrollbar for desktop and tablet */
+@media (min-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* Optional: allow normal scrolling on mobile */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: auto;
+  }
+}
