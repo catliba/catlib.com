@@ -2,6 +2,7 @@
 title: "CSS Grid Layout"
 tags: ["css", "layout", "frontend"]
 date: "2024-01-14"
+category: "CSS"
 ---
 
 # CSS Grid Layout

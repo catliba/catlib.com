@@ -2,6 +2,7 @@
 title: "TypeScript Tips"
 tags: ["typescript", "javascript", "types"]
 date: "2024-01-13"
+category: "React"
 ---
 
 # TypeScript Tips

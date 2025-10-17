@@ -2,6 +2,7 @@
 title: "React Hooks Basics"
 tags: ["react", "javascript", "frontend"]
 date: "2024-01-15"
+category: "React"
 ---
 
 # React Hooks Basics

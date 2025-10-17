@@ -6,6 +6,13 @@ export interface Note {
   date: string;
   content: string;
   slug: string;
+  category?: string;
+}
+
+export interface NoteCategory {
+  name: string;
+  notes: Note[];
+  isDropdown: boolean;
 }
 
 // Function to load all notes
@@ -38,7 +45,8 @@ export async function getAllNotes(): Promise<Note[]> {
           tags: frontmatter.tags || [],
           date: frontmatter.date,
           content: markdownContent,
-          slug: slug
+          slug: slug,
+          category: frontmatter.category
         });
   
       } catch (parseError) {
@@ -60,6 +68,41 @@ export async function getAllNotes(): Promise<Note[]> {
 export async function getNoteBySlug(slug: string): Promise<Note | null> {
   const notes = await getAllNotes();
   return notes.find(note => note.slug === slug) || null;
+}
+
+// Function to organize notes by categories
+export async function getNotesByCategory(): Promise<NoteCategory[]> {
+  const notes = await getAllNotes();
+  
+  // Group notes by category
+  const categoryMap = new Map<string, Note[]>();
+  
+  notes.forEach(note => {
+    const category = note.category || 'General';
+    if (!categoryMap.has(category)) {
+      categoryMap.set(category, []);
+    }
+    categoryMap.get(category)!.push(note);
+  });
+  
+  // Convert to NoteCategory array
+  const categories: NoteCategory[] = [];
+  
+  // Define which categories should be dropdowns vs direct links
+  const dropdownCategories = ['React', 'JavaScript', 'CSS', 'TypeScript'];
+  
+  categoryMap.forEach((notes, categoryName) => {
+    categories.push({
+      name: categoryName,
+      notes: notes.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+      isDropdown: dropdownCategories.includes(categoryName) && notes.length > 1
+    });
+  });
+  
+  // Sort categories alphabetically
+  categories.sort((a, b) => a.name.localeCompare(b.name));
+  
+  return categories;
 }
 
 // Function to parse frontmatter from markdown content
