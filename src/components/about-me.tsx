@@ -84,7 +84,7 @@ export default function AboutMe() {
     return (
         <>
             <div className='homepage'>
-                <PageFlip dir='/life' message='Flip me!'/>
+                <PageFlip dir='/notes' message='Flip me!'/>
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
                     {(/Android|iPhone/i.test(navigator.userAgent)) ? (

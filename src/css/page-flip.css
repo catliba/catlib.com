@@ -1,9 +1,11 @@
 .nav {
-    margin-left: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
     transform: rotate(270deg);
 }
 
 .helper {
     margin-left: auto;
-    transform: translateX(-55px) translateY(-25px) rotateZ(45deg);
+    transform: translateX(0px) translateY(75px) rotateZ(45deg);
 }

@@ -2,6 +2,9 @@ import '../css/notes.css';
 import { useState, useEffect } from 'react';
 import { getNotesByCategory, NoteCategory } from '../utils/notesLoader';
 import NotesDropdown from './notes-dropdown';
+import PageFlip from './page-flip';
+import { Link } from 'react-router-dom';
+import {GiReturnArrow} from 'react-icons/gi'
 
 export default function Notes() {
   const [categories, setCategories] = useState<NoteCategory[]>([]);
@@ -50,18 +53,26 @@ export default function Notes() {
   }
 
   return (
-    <div className="notes">
-      <div className="notes-header">
-        <h1>Notes</h1>
+    <>
+      <div className="return">
+            <Link to={"/aboutcatlib"} className='symbol'>
+              <GiReturnArrow />
+            </Link>
       </div>
-      <hr/>
-      <NotesDropdown categories={categories} />
-
-      {categories.length === 0 && (
-        <div className="empty-state">
-          No notes found. Add markdown files to <code>src/content/notes/</code>
+      <PageFlip dir='/life' message='' />
+      <div className="notes">
+        <div className="notes-header">
+          <h1>Notes</h1>
         </div>
-      )}
-    </div>
+        <hr/>
+        <NotesDropdown categories={categories} />
+
+        {categories.length === 0 && (
+          <div className="empty-state">
+            No notes found. Add markdown files to <code>src/content/notes/</code>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

@@ -7,6 +7,9 @@
 // import PokerCat from '../pngs/pokerstatssplash.png'
 // import {GiReturnArrow} from 'react-icons/gi'
 
+import { GiReturnArrow } from "react-icons/gi";
+import { Link } from "react-router-dom";
+
 // idea: when  clicking into screen splash page gives two cards that represent a possible poker hand randomly
 // to do: sort by location, w/l, etc
 // categorize location
@@ -194,6 +197,11 @@
 export default function PokerTracker() {
   return (
     <div>
+      <div className="return">
+            <Link to={"/life"} className='symbol'>
+              <GiReturnArrow />
+            </Link>
+      </div>
       <h1>I'm taking a break from poker.</h1>
     </div>
   )
