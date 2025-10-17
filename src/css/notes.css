@@ -282,19 +282,50 @@ hr {
 }
 
 @media (max-width: 768px) {
+  /* Prevent any horizontal scroll inside notes views */
+  .notes,
+  .note-detail {
+    padding: 75px 12px 16px 12px; /* extra top space on mobile */
+    align-items: stretch;
+  }
+
+  /* Header size and divider width for small screens */
+  .notes-header h1 {
+    font-size: 32px;
+  }
+  hr {
+    width: 100%;
+  }
+
+  /* Container spans full width on mobile */
   .notes-dropdown-container {
     max-width: 100%;
   }
   
+  /* Bigger tap targets while staying compact */
   .notes-category-header {
     padding: 14px 16px;
   }
   
   .notes-dropdown-item {
-    padding: 10px 16px;
+    padding: 12px 16px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Allow titles and dates to wrap without causing overflow */
+  .note-title {
+    font-size: 16px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .note-date {
+    font-size: 12px;
+    white-space: nowrap;
   }
   
   .category-name {
-    font-size: 15px;
+    font-size: 18px;
   }
 }

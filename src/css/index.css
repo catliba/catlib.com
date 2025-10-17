@@ -34,4 +34,13 @@ button {
   html, body {
     overflow-x: auto;
   }
+  /* Avoid centering layout that clips content on small screens */
+  body {
+    display: block;
+    align-items: stretch;
+    width: 100%;
+  }
+  #root {
+    width: 100%;
+  }
 }
