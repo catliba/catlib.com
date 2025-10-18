@@ -1,12 +1,13 @@
 @font-face {
     font-family: 'Latin Modern';
     src: url('../fonts/Latin-Modern.otf');
+    font-display: swap;
   }
   .notes {
-    font-family: 'Latin Modern';
+    font-family: 'Latin Modern', 'Times New Roman', serif;
   }
   .note-detail {
-    font-family: 'Latin Modern';
+    font-family: 'Latin Modern', 'Times New Roman', serif;
   }
 
 .notes {

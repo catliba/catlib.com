@@ -44,7 +44,7 @@ export default function Blog() {
     <>
       <div className="blogs">
         <div className="return">
-          <Link to={"/notes"} className='symbol'>
+          <Link to={"/aboutcatlib"} className='symbol'>
             <GiReturnArrow />
           </Link>
         </div>

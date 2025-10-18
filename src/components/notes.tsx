@@ -55,11 +55,11 @@ export default function Notes() {
   return (
     <>
       <div className="return">
-            <Link to={"/aboutcatlib"} className='symbol'>
+            <Link to={"/life"} className='symbol'>
               <GiReturnArrow />
             </Link>
       </div>
-      <PageFlip dir='/life' message='' />
+      <PageFlip dir='/poker' message='' />
       <div className="notes">
         <div className="notes-header">
           <h1>Notes</h1>
