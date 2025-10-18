@@ -9,16 +9,16 @@ import PageFlip from './page-flip';
 export default function Blog() {
   const { posts, loading, error } = useAllBlogPosts();
   const [order, setOrder] = useState(true);
-  const [isActive, setIsActive] = useState(false); // State for active button
+  const [isActive, setIsActive] = useState(false); 
 
   const latestClick = () => {
     setOrder(false);
-    setIsActive(true); // Set the button as active when clicked
+    setIsActive(true);
   };
 
   const earliestClick = () => {
     setOrder(true);
-    setIsActive(true); // Set the button as active when clicked
+    setIsActive(true); 
   };
 
   if (loading) {
@@ -44,7 +44,7 @@ export default function Blog() {
     <>
       <div className="blogs">
         <div className="return">
-          <Link to={"/aboutcatlib"} className='symbol'>
+          <Link to={"/notes"} className='symbol'>
             <GiReturnArrow />
           </Link>
         </div>

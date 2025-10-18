@@ -29,13 +29,13 @@ export default function AboutMe() {
     const nextProjSlide = () => {
         if (projIndex < homepageImages.projects.length - 1) {
             setProjIndex(projIndex + 1)
-            setProjImageIndex(0) // Reset image index when changing projects
+            setProjImageIndex(0)
         }
     }
     const prevProjSlide = () => {
         if (projIndex > 0) {
             setProjIndex(projIndex - 1)
-            setProjImageIndex(0) // Reset image index when changing projects
+            setProjImageIndex(0)
         }
     }
     
