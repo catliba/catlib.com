@@ -2,10 +2,10 @@
 title: "An Ode to Poker"
 urlSlug: "poker-sucks"
 date: "2025-10-24"
-comic: "src/pngs/comics/stoningofstephen.png"
+comic: "src/pngs/comics/fuckpokerandblackjack.png"
 ---
 
-## A lucky break
+## A Lucky Break
 I've been taking a break from poker, and, to be frank, I feel like my life has improved significantly. I realize that my mentality to the game was unhealthy; I had to be up on the day, otherwise, I constantly think about winning it back. This led to an unhealthy attachment to variance and a constant need to “prove” myself through short-term results. Now, I’m more present, less anxious, and I feel like I’ve regained control over my time and energy. 
 
 ## This game sucks
