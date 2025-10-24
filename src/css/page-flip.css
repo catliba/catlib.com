@@ -2,10 +2,9 @@
     position: absolute;
     right: 0;
     top: 0;
-    transform: rotate(270deg);
 }
 
 .helper {
     margin-left: auto;
-    transform: translateX(0px) translateY(75px) rotateZ(45deg);
+    transform: translateX(10px) translateY(20px) rotateZ(45deg);
 }

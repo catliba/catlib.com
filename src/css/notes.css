@@ -288,6 +288,17 @@ hr {
   .note-detail {
     padding: 75px 12px 16px 12px; /* extra top space on mobile */
     align-items: stretch;
+    height: auto;
+    overflow: visible;
+  }
+  
+  /* Hide scrollbars on mobile for notes pages */
+  .notes-dropdown-container {
+    overflow: visible;
+  }
+  
+  .notes-dropdown-list {
+    overflow: visible;
   }
 
   /* Header size and divider width for small screens */

@@ -48,7 +48,7 @@ export default function Blog() {
             <GiReturnArrow />
           </Link>
         </div>
-        <PageFlip dir='/poker' message='Keep flipping!'/>
+        <PageFlip dir='/notes' message=''/>
         <div className='comic'>
           <img src={ItWasADarkAndStormyNight} alt="It was a dark and stormy night..." />
         </div>

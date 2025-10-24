@@ -7,7 +7,7 @@ category: "Claude Code"
 
 # Claude Code Tutorial
 
-In this tutorial, I will go over the basics of Cluade Code. This is still currently a work in progress. To be continued.... To get started, you need to buy a plan. 
+In this tutorial, I will go over the basics of Cluade Code. This is still currently a work in progress. To be continued.... but to get started, you need to buy a plan which I am too poor to buy at the moment so this tutorial is being put on hold.
 
 `npm install -g @anthropic-ai/claude-code`
 

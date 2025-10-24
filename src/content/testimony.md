@@ -1,5 +1,5 @@
 ---
-title: "My Walk with Christ"
+title: "Catlieb on Christianity"
 urlSlug: "my-walk"
 date: "2025-10-18"
 comic: "src/pngs/comics/stoningofstephen.png"
@@ -16,15 +16,18 @@ Around the age of 5, we moved places, and consequently found a new church. This 
 ## The bird leaves the nest
 With COVID coming to an end, I found myself at college suddenly. After spending years cooped up in my room, I had grown too comfortable living behind a screen, rarely talking to anyone face to face. Socially awkward and unsure of myself, my first two weeks of college were quite rough.
 
-I still remember visiting a Korean church during my second or third week of undergrad (I went mainly because of the free KBBQ). There, I met an older student who had been at UCSD for a while. I was telling her how homesick I was and that I missed my parents and everything at home. She told me that she felt the same way back then and that the feeling fades. I forgot who she was, but I vividly remember that conversation like it was yesterday. Scary how time flies in a blink of an eye, and crazy how much I've changed. Anyways, I visited some other churches and eventually, I found Lighthouse Bible Church (LBC). I started going there for the rest of my time in college. 
+I still remember visiting a Korean church during my second or third week of undergrad (I went mainly because of the free KBBQ). There, I met an older student who had been at UCSD for a while. I was telling her how homesick I was and that I missed my parents and everything at home. She told me that she felt the same way back then and that the feeling fades. I forgot who she was, but I vividly remember that conversation like it was yesterday. Anyways, I visited some other churches and eventually, I found Lighthouse Bible Church (LBC). I started going there for the rest of my time in college. 
 
 ## The LBC Community
 The LBC college ministry was a huge group. Without my mom urging me to go anymore, my attendance to church on Fridays and Sundays were sporadic. Sometimes on Fridays, I would be too scared to meet people and just not go. When I did go, I would have a hard time talking to anyone. For the first year or so, I felt like an outsider, just standing or sitting there stupidly every Friday and Sunday after sermon. Guess I was still that shy kid back then, too scared to talk to other people. Eventually though, I found my friends there and still talk to many of them today! Since LBC, I've gained the confidence to connect normally with other people at church.
 
 I recall my first car ride to an AYCE restrurant with some other kids my grade at LBC. They asked me if I was saved. I didn't understand the question at the time. The dude in the car said if I was comfortable dying then and there in a car accident, secure in my faith that I would go to heaven. I was very confused. I never had that many thoughts about my faith; I've always just assumed that I was Christian. Looking back now, I was being grilled pretty hard. I'm not sure why, but it was pretty intense. Going to Lighthouse taught me to become more intentional with my faith.
 
+## Spiritual Dryness
+I've been going to LBC for the majority of my college, but I kind of stopped going in my senior year. I lived with non church people my senior year, and it was difficult going to church by myself. I currently still have this problem, driving to church by myself is very intimidating.
+
 ## Revalations about my life
-So, what now? I guess I can say that I'm going through a period of spiritual dryness. Community is an important aspect of being a Christian because faith isn’t meant to be lived out alone. It’s through others — through shared struggles, encouragement, and accountability — that our beliefs take root and grow stronger. I realize this, yet I find it really difficult to drive to church by myself and integrate myself within a community. But why?
+So, what now? Community is an important aspect of being a Christian because faith isn’t meant to be lived out alone. It’s through others — through shared struggles, encouragement, and accountability — that our beliefs take root and grow stronger. I realize this, yet I find it really difficult to drive to church by myself and integrate myself within a community. But why?
 
 I'm convicted to follow Christ, yet I can't bring myself to go to church every Sunday. Is it because I fear being judged by other people? Still feeling like that shy kid with his mom on Friday nights, I feel overwhelmed by the people. Sometimes I think it’s my pride and shame that hold me back. In this current chapter of my life, when I go, I find myself telling people that I live with my parents. Silly as it may sound, but my pride is hurt, which kind of discourages me from going. 
 
