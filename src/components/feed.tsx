@@ -51,6 +51,18 @@ export default function Post() {
         {currentSlide === -1 ? 
           (<>
           <div className="slides">
+          <div className="button-container-mobile">
+            <motion.button
+              className='button-mobile'
+              onClick={prevSlide}
+              whileTap={{scale:0.5}}
+              whileHover={{color: '#7d0b00'}}><GiPreviousButton/></motion.button>
+            <motion.button
+              className='button-mobile' 
+              onClick={nextSlide}
+              whileTap={{scale:0.5}}
+              whileHover={{color: '#7d0b00'}}><GiNextButton/></motion.button>
+          </div>
           <motion.button
             className='button-top'
             onClick={prevSlide}

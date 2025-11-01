@@ -8,7 +8,7 @@ import PageFlip from './page-flip';
 
 export default function Blog() {
   const { posts, loading, error } = useAllBlogPosts();
-  const [order, setOrder] = useState(true);
+  const [order, setOrder] = useState(false);
   const [isActive, setIsActive] = useState(false); 
 
   const latestClick = () => {
