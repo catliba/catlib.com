@@ -1,3 +1,4 @@
+import { GiReturnArrow } from 'react-icons/gi';
 import '../css/notes.css';
 import { useNote } from '../hooks/useNotes';
 import { markdownToHtml } from '../utils/notesLoader';
@@ -27,25 +28,33 @@ export default function NoteDetail() {
   }
 
   return (
-    <div className="note-detail">
-      <div className="note-header">
-        <Link to="/notes" className="back-link">← Back to Notes</Link>
-        <h1>{note.title}</h1>
-        <div className="note-meta">
-          <span className="note-date">{new Date(note.date).toLocaleDateString()}</span>
-          {note.tags.length > 0 && (
-            <div className="note-tags">
-              {note.tags.map(tag => (
-                <span key={tag} className="tag">{tag}</span>
-              ))}
-            </div>
-          )}
+    <>
+      <div className="return">
+            <Link to={"/notes"} className='symbol'>
+              <GiReturnArrow />
+            </Link>
+      </div>
+      <div className="note-detail">
+        <div className="note-header">
+          <h1>{note.title}</h1>
+          <div className="note-meta">
+            {note.date && !isNaN(new Date(note.date).getTime()) && (
+              <span className="note-date">{new Date(note.date).toLocaleDateString()}</span>
+            )}
+            {note.tags.length > 0 && (
+              <div className="note-tags">
+                {note.tags.map(tag => (
+                  <span key={tag} className="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="note-content">
+          <div dangerouslySetInnerHTML={{ __html: markdownToHtml(note.content) }} />
         </div>
       </div>
-
-      <div className="note-content">
-        <div dangerouslySetInnerHTML={{ __html: markdownToHtml(note.content) }} />
-      </div>
-    </div>
+    </>
   );
 }

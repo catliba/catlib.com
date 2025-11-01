@@ -1,7 +1,7 @@
 ---
 title: "JSX and Components"
-tags: ["typescript", "javascript", "types"]
-date: "2024-01-13"
+tags: ["react"]
+date: ""
 category: "React"
 ---
 

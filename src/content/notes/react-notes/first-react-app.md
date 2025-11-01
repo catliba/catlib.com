@@ -1,7 +1,7 @@
 ---
 title: "First React App"
 tags: ["react", "javascript", "frontend"]
-date: "2025-10-15"
+date: ""
 category: "React"
 ---
 

@@ -1,5 +1,46 @@
 import { marked } from 'marked';
 
+// Pre-import all images from src/pngs/ for use in markdown
+// This allows images to be referenced in markdown files
+const imageModules = import.meta.glob('../pngs/**/*.{jpg,jpeg,png,gif,webp}', { 
+  eager: true 
+});
+
+// Create a map of image filenames to their imported URLs
+const imageMap = new Map<string, string>();
+for (const path in imageModules) {
+  const image = imageModules[path] as { default?: string };
+  const imageUrl = image?.default;
+  if (imageUrl) {
+    // Get the filename from the path
+    const pathParts = path.replace('../pngs/', '').replace(/\\/g, '/');
+    const filename = pathParts.split('/').pop() || '';
+    
+    // Store variations of the filename and path
+    const variations: string[] = [
+      filename, // Original filename
+      encodeURIComponent(filename), // URL encoded
+      decodeURIComponent(filename), // URL decoded (in case it was encoded)
+      pathParts, // Full path
+      encodeURIComponent(pathParts), // Full path encoded
+      decodeURIComponent(pathParts), // Full path decoded
+    ];
+    
+    // Add variations with spaces replaced
+    if (filename.includes(' ')) {
+      variations.push(filename.replace(/ /g, '%20'));
+      variations.push(filename.replace(/ /g, '_'));
+    }
+    
+    // Store all variations pointing to the same image URL
+    variations.forEach(variation => {
+      if (variation && variation.length > 0 && !imageMap.has(variation)) {
+        imageMap.set(variation, imageUrl);
+      }
+    });
+  }
+}
+
 export interface Note {
   title: string;
   tags: string[];
@@ -18,7 +59,7 @@ export interface NoteCategory {
 // Function to load all notes
 export async function getAllNotes(): Promise<Note[]> {
   try {
-    const noteModules = import.meta.glob('../content/notes/*.md', { 
+    const noteModules = import.meta.glob('../content/notes/**/*.md', { 
       eager: true,
       as: 'raw'
     });
@@ -37,8 +78,10 @@ export async function getAllNotes(): Promise<Note[]> {
         // Extract frontmatter and content
         const { frontmatter, content: markdownContent } = parseFrontmatter(content);
         
-        // Generate slug from filename
-        const slug = path.split('/').pop()?.replace('.md', '') || '';
+        // Generate slug from full path, preserving directory structure
+        // e.g., '../content/notes/react-notes/jsx-components.md' -> 'react-notes-jsx-components'
+        const pathParts = path.replace('../content/notes/', '').replace('.md', '').split('/');
+        const slug = pathParts.join('-');
         
         notes.push({
           title: frontmatter.title,
@@ -143,5 +186,53 @@ function parseFrontmatter(content: string): { frontmatter: any; content: string 
 
 // Function to convert markdown to HTML
 export function markdownToHtml(markdown: string): string {
-  return marked(markdown);
+  // Configure marked with custom image renderer to handle image paths
+  marked.setOptions({
+    breaks: true,
+    gfm: true,
+  });
+  
+  // Use a custom renderer for images to handle paths correctly
+  const renderer = new marked.Renderer();
+  const originalImage = renderer.image.bind(renderer);
+  
+  renderer.image = (href: string | null, title: string | null, text: string) => {
+    if (!href) return '';
+    
+    // Handle external URLs
+    if (href.startsWith('http://') || href.startsWith('https://')) {
+      return originalImage(href, title, text);
+    }
+    
+    // Try to resolve local image paths using the image map
+    // Users can reference images by filename or relative path
+    let resolvedPath = href;
+    
+    // Normalize the path - remove leading relative path indicators
+    let cleanPath = href.replace(/^(\.\.?\/)+/, '').replace(/^pngs\//, '');
+    
+    // Decode URL encoding (e.g., %20 -> space)
+    const decodedPath = decodeURIComponent(cleanPath);
+    const filename = cleanPath.split('/').pop() || '';
+    const decodedFilename = decodedPath.split('/').pop() || '';
+    
+    // Try multiple lookup strategies
+    if (imageMap.has(cleanPath)) {
+      resolvedPath = imageMap.get(cleanPath)!;
+    } else if (imageMap.has(decodedPath)) {
+      resolvedPath = imageMap.get(decodedPath)!;
+    } else if (imageMap.has(filename)) {
+      resolvedPath = imageMap.get(filename)!;
+    } else if (imageMap.has(decodedFilename)) {
+      resolvedPath = imageMap.get(decodedFilename)!;
+    } else {
+      // If still not found, try with original href (might work if it's a valid path)
+      // Log a warning for debugging
+      console.warn(`Image not found: ${href}. Available keys:`, Array.from(imageMap.keys()).slice(0, 10));
+    }
+    
+    return originalImage(resolvedPath, title, text);
+  };
+  
+  return marked(markdown, { renderer });
 }

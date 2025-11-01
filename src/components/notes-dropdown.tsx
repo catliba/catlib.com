@@ -44,9 +44,11 @@ export default function NotesDropdown({ categories }: NotesDropdownProps) {
                         className="notes-dropdown-item"
                       >
                         <span className="note-title">{note.title}</span>
-                        <span className="note-date">
-                          {new Date(note.date).toLocaleDateString()}
-                        </span>
+                        {note.date && !isNaN(new Date(note.date).getTime()) && (
+                          <span className="note-date">
+                            {new Date(note.date).toLocaleDateString()}
+                          </span>
+                        )}
                       </Link>
                     ))}
                   </div>
@@ -68,9 +70,6 @@ export default function NotesDropdown({ categories }: NotesDropdownProps) {
                       onClick={() => toggleCategory(category.name)}
                     >
                       <span className="category-name">{category.name}</span>
-                      <span className={`dropdown-arrow ${expandedCategories.has(category.name) ? 'expanded' : ''}`}>
-                        ▼
-                      </span>
                     </div>
                     {expandedCategories.has(category.name) && (
                       <div className="notes-category-content">
