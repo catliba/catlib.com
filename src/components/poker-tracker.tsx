@@ -109,7 +109,11 @@ type SessionRow = {
               <button className="toggle-button-2" onClick={handleLogSessionClick}>Add Session</button>
             </>
           ) : (
+            <>
+            <Link to={"/notes/poker-introduction"} className="toggle-button-2" >Learn from Me</Link>
             <button className="toggle-button-2" onClick={handleLogSessionClick}>Add Session</button>
+            </>
+                        
           )}
         </div>
 

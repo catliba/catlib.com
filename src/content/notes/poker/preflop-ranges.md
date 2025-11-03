@@ -86,7 +86,7 @@ Understanding basic preflop gives you the most edge on a table. Identifying fish
 <div style="margin-left: 1rem;">
 
 <details>
-<summary><strong>vs UTG</strong></summary>
+<summary><strong>vs UTG RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
 
@@ -108,36 +108,53 @@ Note: in a 9 handed game, UTG would be around UTG2~LJ
 </details>
 
 <details>
-<summary><strong>vs HJ</strong></summary>
+<summary><strong>vs HJ RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
+
+- as the CO : 88+, A9s+, A5s-A4s, KTs+, QTs+, JTs, AJo+, KQo
+    - suited connectors (45, 56, 67) very infrequent 3! (25%)
+    - Mainly just suited broadway hands
+- as the BU : same as HJ
+    - suited connectors (45, 56, 67) very infrequent 3!
+    - add in T9, 77 occasionally 
+- as the SB : 99+, ATs+, A5s, KTs+, QTs+, AKo
+    - tightest configuration
+    - 88 and A4s 50% freq
+    - suited broadways and AQo+ essentially
 
 </div>
 
 </details>
 
 <details>
-<summary><strong>vs CO</strong></summary>
+<summary><strong>vs CO RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
+
+to be continued...
 
 </div>
 
 </details>
 
 <details>
-<summary><strong>vs BTN</strong></summary>
+<summary><strong>vs BTN RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
+
+to be continued...
 
 </div>
 
 </details>
 
 <details>
-<summary><strong>vs SB</strong></summary>
+<summary><strong>vs SB RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
+
+to be continued...
 
 </div>
 
