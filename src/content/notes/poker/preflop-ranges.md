@@ -83,6 +83,8 @@ Understanding basic preflop gives you the most edge on a table. Identifying fish
 
 #### When to 3! vs RFI
 
+BB play is not listed as it is bit more complex. Everything below is a 3!, we are not cold calling anything. Suited connectors *very* infrequent raises if even at all.
+
 <div style="margin-left: 1rem;">
 
 <details>
@@ -90,13 +92,15 @@ Understanding basic preflop gives you the most edge on a table. Identifying fish
 
 <div style="margin-left: 1rem;">
 
-Note: in a 9 handed game, UTG would be around UTG2~LJ
-- as the HJ : 99+, A9s+, A5s–A4s, KTs+, QJs+, AQo+
+Note: in a 9 handed game, UTG would be around UTG2~LJ. The tightest you will ever want to 3!, as early position (EP) players play a strong range.
+- as the HJ : 99+, A9s+, A5s–A4s, KTs+, QJs, AQo+
     - suited connectors (45, 56, 67) very infrequent 3!
-- as the CO : same as HJ
+    - super tight, notice how we don't play JTs, QTs, KQo
+- as the CO : same tightness as HJ
     - suited connectors (45, 56, 67) very infrequent 3!
     - add in KQo, QTs, 88 occasionally 
 - as the BTN : 88+, A9s+, A5s–A4s, KTs+, QJs+, AQo+
+    - Loosest position (discounting BB) but still very tight
     - Every single suited broadway or offsuit Q and higher
     - suited connectors (56, 67) very infrequent 3!
 - as the SB : 99+, ATs+, A5s, KTs+, QTs+, AKo
@@ -112,6 +116,7 @@ Note: in a 9 handed game, UTG would be around UTG2~LJ
 
 <div style="margin-left: 1rem;">
 
+Notice that we are loosening up, but still playing only top of range (suited broadways mainly)
 - as the CO : 88+, A9s+, A5s-A4s, KTs+, QTs+, JTs, AJo+, KQo
     - suited connectors (45, 56, 67) very infrequent 3! (25%)
     - Mainly just suited broadway hands
@@ -119,7 +124,7 @@ Note: in a 9 handed game, UTG would be around UTG2~LJ
     - suited connectors (45, 56, 67) very infrequent 3!
     - add in T9, 77 occasionally 
 - as the SB : 99+, ATs+, A5s, KTs+, QTs+, AKo
-    - tightest configuration
+    - tightest configuration, no 9 suited hands and no AJo or KQo
     - 88 and A4s 50% freq
     - suited broadways and AQo+ essentially
 
@@ -132,7 +137,14 @@ Note: in a 9 handed game, UTG would be around UTG2~LJ
 
 <div style="margin-left: 1rem;">
 
-to be continued...
+We see a noticeable difference in opening ranges facing when the CO RFI compared to when EP RFI. Can be more liberal with raises.
+- as the BU : 66+, A8s+, A3s-A5s, K9s+, QTs+, J9s+, T9s, AJo+, KQo
+    - occasionally (borderline) mix in A7s, ATo, KJo, Q9s
+    - still no KTo, QTo, QJo
+    - 45s, 56s, 67s are infrequent raises
+- as the SB : 88+, A9s+, A5s, KTs+, QTs+, AQo, KQo
+    - occasionally raise with 77, A4s, K9s, J9s (note J9 is selected as a raise and not Q9s because J9s is a suited gapper), AJo
+
 
 </div>
 
@@ -143,21 +155,60 @@ to be continued...
 
 <div style="margin-left: 1rem;">
 
-to be continued...
+- as the SB : 88+, A9s+, A5s, KTs+, QTs+, AQo, KQo
+    - occasionally include 77, A4s, K9s, J9s (note J9 and not Q9s because J9s is a suited gapper), AJo
+
+</div>
+
+</details>
+
+</div>
+
+#### BB vs RFI
+
+Exclusively analysing the big blind position facing raises from all the other positions.
+
+<details>
+<summary><strong>BB vs UTG RFI</strong></summary>
+
+<div style="margin-left: 1rem;">
 
 </div>
 
 </details>
 
 <details>
-<summary><strong>vs SB RFI</strong></summary>
+<summary><strong>BB vs HJ RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
-
-to be continued...
 
 </div>
 
 </details>
 
+<details>
+<summary><strong>BB vs CO RFI</strong></summary>
+
+<div style="margin-left: 1rem;">
+
 </div>
+
+</details>
+
+<details>
+<summary><strong>BB vs BTN RFI</strong></summary>
+
+<div style="margin-left: 1rem;">
+
+</div>
+
+</details>
+
+<details>
+<summary><strong>BB vs SB RFI</strong></summary>
+
+<div style="margin-left: 1rem;">
+
+</div>
+
+</details>
