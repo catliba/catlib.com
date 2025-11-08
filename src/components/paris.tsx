@@ -98,10 +98,10 @@ export default function Paris() {
                     key={currentCard}
                     className="paris-card"
                     custom={direction}
-                    initial={{ opacity: 0, x: direction === 'right' ? (isMobile ? 100 : 300) : (isMobile ? -100 : -300) }}
+                    initial={{ opacity: 0, x: direction === 'left' ? (isMobile ? 100 : 300) : (isMobile ? -100 : -300) }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction === 'left' ? (isMobile ? -100 : -300) : (isMobile ? 100 : 300) }}
-                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                    exit={{ opacity: 0, x: direction === 'right' ? (isMobile ? -100 : -300) : (isMobile ? 100 : 300) }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
                   >
                     <div 
                       className='paris-content'
@@ -128,7 +128,7 @@ export default function Paris() {
                   key={index}
                   className={`paris-indicator-dot ${index === currentCard ? 'active' : ''}`}
                   onClick={() => {
-                    setDirection(index > currentCard ? 'left' : 'right');
+                    setDirection(index > currentCard ? 'right' : 'left');
                     setCurrentCard(index);
                   }}
                 />

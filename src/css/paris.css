@@ -4,7 +4,6 @@
   }
 
 .birthday {
-    font-family: Zeyada;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,7 +139,7 @@
     cursor: pointer;
     font-size: 2rem;
     color: rgb(255, 118, 187);
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     flex-shrink: 0;
     z-index: 10;
     position: relative;
@@ -238,29 +237,6 @@
         position: relative;
         z-index: 10;
         margin: 0 0.25rem;
-    }
-
-    .paris-content {
-        font-size: 1.6em;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .paris-content h1 {
-        font-size: 2.2em;
-        word-wrap: break-word;
-    }
-
-    .paris-content h2 {
-        font-size: 1.9em;
-        word-wrap: break-word;
-    }
-
-    .paris-content h3,
-    .paris-content p {
-        font-size: 1.6em;
-        line-height: 2;
-        word-wrap: break-word;
     }
 
     .paris-card-indicator {
