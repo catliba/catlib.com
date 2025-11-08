@@ -1,40 +1,76 @@
 import '../css/paris.css';
-import { useState } from 'react';
-import confetti from 'canvas-confetti';
-import Sprinkles from '../pngs/weiwei1.jpg';
-import Rilakkuma from '../pngs/rillakuma-chibi.gif'
+import { useState, useEffect } from 'react';
 import useSound from 'use-sound';
-import oldLove from '../pngs/song.mp3';
+import oldLove from '../pngs/yungkaiblue.mp3';
 import Cake from '../pngs/cake.jpg'
+import { useAllParisPages } from '../hooks/useParisPages';
+import { markdownToHtml } from '../utils/parisLoader';
+import { motion, AnimatePresence } from 'framer-motion';
+import { GiPreviousButton, GiNextButton } from 'react-icons/gi';
 
 export default function Paris() {
-
+  const { pages, loading, error } = useAllParisPages();
   const [playSound] = useSound(oldLove, {
     volume: 0.5,
   });
 
   const [showContent, setShowContent] = useState(false);
+  const [currentCard, setCurrentCard] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Update mobile state on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleClick = () => {
     setShowContent(true);
     playSound();
-    for (let i = 0; i < 10; i++) {
-      setTimeout(() => {
-        launchConfetti();
-      }, i * 500);
+  };
+
+
+  const nextCard = () => {
+    if (currentCard < pages.length - 1) {
+      setDirection('left');
+      setCurrentCard(currentCard + 1);
     }
   };
 
-  const launchConfetti = () => {
-    const x = Math.random();
-    const y = Math.random();
-
-    confetti({
-      particleCount: 100,
-      spread: 100,
-      origin: { x, y }
-    });
+  const prevCard = () => {
+    if (currentCard > 0) {
+      setDirection('right');
+      setCurrentCard(currentCard - 1);
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="birthday">
+        <div>Loading...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="birthday">
+        <div>Error: {error}</div>
+      </div>
+    );
+  }
+
+  if (pages.length === 0) {
+    return (
+      <div className="birthday">
+        <div>No letters found.</div>
+      </div>
+    );
+  }
 
   return (
       <>
@@ -44,31 +80,61 @@ export default function Paris() {
             <img src={Cake} alt="Start Button" className='cake'/>
           </button>
         ) : (
-          <>
-            <div className='wishes'>
-              <img src={Rilakkuma} alt="Pom Pom Kuma" className="rilakkuma" />
-              <h1>Happy Birthday!</h1>
-              <img src={Rilakkuma} alt="Pom Pom Kuma" className="rilakkuma" />
-            </div>
-            <div className='message'>
-              <h1>Dear Weiwei,</h1> 
-              <h3>First and foremost, happy 21 years of age! 
-              We've only spent around 4% of our current living years together, but tell me why that 4% feels more like 
-              40%? I can't really imagine how I went about my days before knowing you anymore...I also don't really want to.
-              While I may not admit it, I do think about you A LOT. Long distance is really hard for me because I like you a lot a lot. 
-              So yea, I made you a corny ass website, and yes, this was my idea of a birthday gift to you.
-              Since I cannot give you anything in person, this felt like the next best option.
-              If you dislike it, let me know and I'll think of something else next year. 
-              Hopefully China VPN doesn't block this.
-              Also, you will probably see this the day after your birthday since I'm a lazy person and procrastinated on this (along with numerous other things).
-              But enough excuses and whatever. Happy Birthday! When we spend more time together, I'll add to this website, and it'll grow!  Love ya :)</h3>
-              <h2>--Caleb</h2>
-            </div>
-            <div className='timeline'>
+          <div className="paris-carousel">
+            <div className="paris-carousel-container">
+              <motion.button
+                className="paris-nav-button paris-nav-left"
+                onClick={prevCard}
+                disabled={currentCard === 0}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <GiPreviousButton />
+              </motion.button>
 
+              <div className="paris-card-wrapper">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={currentCard}
+                    className="paris-card"
+                    custom={direction}
+                    initial={{ opacity: 0, x: direction === 'right' ? (isMobile ? 100 : 300) : (isMobile ? -100 : -300) }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: direction === 'left' ? (isMobile ? -100 : -300) : (isMobile ? 100 : 300) }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  >
+                    <div 
+                      className='paris-content'
+                      dangerouslySetInnerHTML={{ __html: markdownToHtml(pages[currentCard].content) }}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              <motion.button
+                className="paris-nav-button paris-nav-right"
+                onClick={nextCard}
+                disabled={currentCard === pages.length - 1}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <GiNextButton />
+              </motion.button>
             </div>
-            <img src={Sprinkles} className='sprinkles' />
-          </>
+
+            <div className="paris-card-indicator">
+              {pages.map((_, index) => (
+                <button
+                  key={index}
+                  className={`paris-indicator-dot ${index === currentCard ? 'active' : ''}`}
+                  onClick={() => {
+                    setDirection(index > currentCard ? 'left' : 'right');
+                    setCurrentCard(index);
+                  }}
+                />
+              ))}
+            </div>
+          </div>
         )}
         </div>
       </>

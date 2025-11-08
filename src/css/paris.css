@@ -9,16 +9,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 192, 203, 0.534);
-  }
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
 
 .start {
     background-color: white;
     height: 100vh;
+    width: 100%;
+    border: none;
 }
 
 .cake {
-    max-width: 20%;
+    max-width: 30%;
 }
 
 .wishes {
@@ -31,10 +36,6 @@
 .wishes h1 {
     font-size: 5em;
     color: rgb(255, 118, 187);
-}
-
-.rilakkuma {
-    
 }
 
 .message {
@@ -52,6 +53,223 @@
 .message h3 {
     font-size: 1em;
 }
+
+.paris-content {
+    width: 100%;
+    font-family: Zeyada;
+}
+
+.paris-content h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: rgb(255, 118, 187);
+}
+
+.paris-content h2 {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.paris-content h3 {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.paris-content p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+/* Paris Carousel Styles */
+.paris-carousel {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.paris-carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.paris-card-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    position: relative;
+}
+
+.paris-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 192, 203, 0.534);
+    padding: 3rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 118, 187, 0.3);
+    box-sizing: border-box;
+}
+
+.paris-nav-button {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 118, 187, 0.5);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    color: rgb(255, 118, 187);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 10;
+    position: relative;
+}
+
+.paris-nav-button:hover:not(:disabled) {
+    background: rgba(255, 118, 187, 0.2);
+    border-color: rgb(255, 118, 187);
+    transform: scale(1.1);
+}
+
+.paris-nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.paris-card-indicator {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.paris-indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 118, 187);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.paris-indicator-dot:hover {
+    background: rgba(255, 118, 187, 0.3);
+    transform: scale(1.2);
+}
+
+.paris-indicator-dot.active {
+    background: rgb(255, 118, 187);
+    width: 14px;
+    height: 14px;
+}
+
+@media (max-width: 768px) {
+    .birthday {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .paris-carousel {
+        padding: 1rem 0.25rem;
+        margin: 0;
+        width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    .paris-carousel-container {
+        gap: 0.25rem;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .paris-card-wrapper {
+        min-height: auto;
+        flex: 1;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .paris-card {
+        padding: 1.25rem;
+        max-width: 100%;
+        width: calc(100% - 2rem);
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .paris-nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 10;
+        margin: 0 0.25rem;
+    }
+
+    .paris-content {
+        font-size: 1.6em;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .paris-content h1 {
+        font-size: 2.2em;
+        word-wrap: break-word;
+    }
+
+    .paris-content h2 {
+        font-size: 1.9em;
+        word-wrap: break-word;
+    }
+
+    .paris-content h3,
+    .paris-content p {
+        font-size: 1.6em;
+        line-height: 2;
+        word-wrap: break-word;
+    }
+
+    .paris-card-indicator {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+    }
+}
+
 .sprinkles {
     max-width: 35%;
     padding: 20px;
