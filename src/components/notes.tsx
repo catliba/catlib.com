@@ -59,7 +59,6 @@ export default function Notes() {
               <GiReturnArrow />
             </Link>
       </div>
-      <PageFlip dir='/poker' message='' />
       <div className="notes">
         <div className="notes-header">
           <h1>Notes</h1>
