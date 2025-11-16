@@ -2,7 +2,6 @@ import '../css/notes.css';
 import { useState, useEffect } from 'react';
 import { getNotesByCategory, NoteCategory } from '../utils/notesLoader';
 import NotesDropdown from './notes-dropdown';
-import PageFlip from './page-flip';
 import { Link } from 'react-router-dom';
 import {GiReturnArrow} from 'react-icons/gi'
 
