@@ -1,5 +1,5 @@
 ---
-title: "We Broke Up"
+title: "A Love Hate Relationship Story"
 urlSlug: "we-broke-up-again"
 date: "2025-11-15"
 comic: "src/pngs/comics/poker-broke-my-heart.png"
