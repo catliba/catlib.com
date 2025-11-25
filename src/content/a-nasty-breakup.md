@@ -13,7 +13,7 @@ I remember in college, I was really consistent with going to the gym. My day was
 Recently, I've been doing technical interview practice problems every day, and I kinda feel a similar way with it (screw testing edge cases though). Like the gym, I don't spend the whole day doing it. Just a few hours a day, but over time, I can see a difference. Hopefully, I can do better in technical interviews now. Once I get an interview, that is.
 
 ## WTF CALEB WHY ARE YOU TALKING ABOUT POEKR AGAIN?!
-Of course, these strips always gotta circle back to poker. Granted, poker was the main reason why catlieb.com died in the first place a few years ago. Who tf wants to read about poker every week?
+Of course, these strips always gotta circle back to poker. Granted, poker was the main reason why catlieb.com died in the first place a few years ago. Who tf wants to read about poker every week? 
 
 ## I wanted more
 Recently, I've been shot-taking, and it hasn't gone well. Shot-taking in poker is playing at larger stakes than you normally play. The point of shot-taking is to be able to play those larger stakes more comfortably to the point where those larger stakes become the new normal. Think of it as leveling up or moving onto the next level. For me, that's playing 1/2 online and 5/5 live (online usually plays smaller than live), and I've lost upwards of $3,000 in the last few weeks. 3k is not much relative to the stakes I was playing at, but it is still a lot of money. I would be lying if I said it didn't make me sad, or mad, or disillusioned. I guess I can be described as "tilted."
