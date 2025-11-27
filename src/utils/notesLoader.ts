@@ -48,6 +48,7 @@ export interface Note {
   content: string;
   slug: string;
   category?: string;
+  folderPath?: string; // Path relative to notes folder (e.g., "react-notes" or "poker")
 }
 
 export interface NoteCategory {
@@ -83,13 +84,17 @@ export async function getAllNotes(): Promise<Note[]> {
         const pathParts = path.replace('../content/notes/', '').replace('.md', '').split('/');
         const slug = pathParts.join('-');
         
+        // Extract folder path (everything except the filename)
+        const folderPath = pathParts.length > 1 ? pathParts.slice(0, -1).join('/') : '';
+        
         notes.push({
           title: frontmatter.title,
           tags: frontmatter.tags || [],
           date: frontmatter.date,
           content: markdownContent,
           slug: slug,
-          category: frontmatter.category
+          category: frontmatter.category,
+          folderPath: folderPath
         });
   
       } catch (parseError) {
@@ -97,8 +102,18 @@ export async function getAllNotes(): Promise<Note[]> {
       }
     }
     
-    // Sort by date (newest first)
-    notes.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    // Sort by folder structure first, then by filename
+    notes.sort((a, b) => {
+      // First sort by folder path
+      if (a.folderPath && b.folderPath) {
+        const folderCompare = a.folderPath.localeCompare(b.folderPath);
+        if (folderCompare !== 0) return folderCompare;
+      } else if (a.folderPath) return 1; // Notes with folders come after root notes
+      else if (b.folderPath) return -1;
+      
+      // If same folder, sort by slug (filename)
+      return a.slug.localeCompare(b.slug);
+    });
     
     return notes;
   } catch (error) {
@@ -135,9 +150,22 @@ export async function getNotesByCategory(): Promise<NoteCategory[]> {
   const dropdownCategories = ['React', 'JavaScript', 'CSS', 'TypeScript'];
   
   categoryMap.forEach((notes, categoryName) => {
+    // Sort notes within category by folder structure, then by filename
+    const sortedNotes = notes.sort((a, b) => {
+      // First sort by folder path
+      if (a.folderPath && b.folderPath) {
+        const folderCompare = a.folderPath.localeCompare(b.folderPath);
+        if (folderCompare !== 0) return folderCompare;
+      } else if (a.folderPath) return 1;
+      else if (b.folderPath) return -1;
+      
+      // If same folder, sort by slug (filename)
+      return a.slug.localeCompare(b.slug);
+    });
+    
     categories.push({
       name: categoryName,
-      notes: notes.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+      notes: sortedNotes,
       isDropdown: dropdownCategories.includes(categoryName) && notes.length > 1
     });
   });

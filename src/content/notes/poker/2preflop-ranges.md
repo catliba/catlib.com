@@ -8,7 +8,7 @@ category: "Poker"
 
 # Preflop Ranges
 
-Understanding basic preflop gives you the most edge on a table. Identifying fish in a game usually involves seeing what their preflop raising range and VPIP is and if it deviates from the standard. 
+Understanding basic preflop gives you the most edge on a table. Identifying fish in a game usually involves seeing what their preflop raising range and VPIP and PFR is and if it deviates from the standard. 
 
 6 handed play. Play a little tighter 9 handed.
 
@@ -166,12 +166,20 @@ We see a noticeable difference in opening ranges facing when the CO RFI compared
 
 #### BB vs RFI
 
-Exclusively analysing the big blind position facing raises from all the other positions.
+Exclusively analysing the big blind position facing raises from all the other positions. 
+
+<div style="margin-left: 1rem;">
 
 <details>
 <summary><strong>BB vs UTG RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
+
+Order matters for Call. Goes from left to right, call a bigger BB RFI (3-4bb) to call a smaller RFI (2bb)  
+For Mix, the more left, the more often you would want to 3! rather than call.
+- **3!**: QQ+, AK, KQs+, 
+- **Call**: 22-JJ, Suited Connectors, Suited Gappers
+- **Mix** between Call and 3!:
 
 </div>
 
@@ -182,6 +190,10 @@ Exclusively analysing the big blind position facing raises from all the other po
 
 <div style="margin-left: 1rem;">
 
+- **3!**: QQ+, AK, KQs+, 
+- **Call**: 22-JJ, Suited Connectors, Suited Gappers
+- **Mix** between Call and 3
+
 </div>
 
 </details>
@@ -190,6 +202,10 @@ Exclusively analysing the big blind position facing raises from all the other po
 <summary><strong>BB vs CO RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
+
+- **3!**: QQ+, AK, KQs+, 
+- **Call**: 22-JJ, Suited Connectors, Suited Gappers
+- **Mix** between Call and 3
 
 </div>
 
@@ -200,6 +216,10 @@ Exclusively analysing the big blind position facing raises from all the other po
 
 <div style="margin-left: 1rem;">
 
+- **3!**: 
+- **Call**: 
+- **Mix** between Call and 3:
+
 </div>
 
 </details>
@@ -208,6 +228,10 @@ Exclusively analysing the big blind position facing raises from all the other po
 <summary><strong>BB vs SB RFI</strong></summary>
 
 <div style="margin-left: 1rem;">
+
+- **3!**:
+- **Call**: 
+- **Mix** between Call and 3:
 
 </div>
 

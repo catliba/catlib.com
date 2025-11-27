@@ -4,10 +4,25 @@ import { useNote } from '../hooks/useNotes';
 import { markdownToHtml } from '../utils/notesLoader';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+// Import font so Vite processes it
+import latinModernFont from '../fonts/Latin-Modern.otf';
 
 export default function NoteDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { note, loading, error } = useNote(slug || '');
+
+  useEffect(() => {
+    // Inject font-face with processed URL
+    const fontFace = new FontFace('Latin Modern', `url(${latinModernFont})`, {
+      display: 'swap'
+    });
+    fontFace.load().then((loadedFont) => {
+      document.fonts.add(loadedFont);
+    }).catch((err) => {
+      console.error('Error loading Latin Modern font:', err);
+    });
+  }, []);
 
   if (loading) {
     return (
