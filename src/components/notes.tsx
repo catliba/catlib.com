@@ -4,25 +4,11 @@ import { getNotesByCategory, NoteCategory } from '../utils/notesLoader';
 import NotesDropdown from './notes-dropdown';
 import { Link } from 'react-router-dom';
 import {GiReturnArrow} from 'react-icons/gi';
-// Import font so Vite processes it
-import latinModernFont from '../fonts/Latin-Modern.otf';
 
 export default function Notes() {
   const [categories, setCategories] = useState<NoteCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Inject font-face with processed URL
-    const fontFace = new FontFace('Latin Modern', `url(${latinModernFont})`, {
-      display: 'swap'
-    });
-    fontFace.load().then((loadedFont) => {
-      document.fonts.add(loadedFont);
-    }).catch((err) => {
-      console.error('Error loading Latin Modern font:', err);
-    });
-  }, []);
 
   useEffect(() => {
     const loadCategories = async () => {
