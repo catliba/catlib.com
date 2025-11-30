@@ -107,7 +107,11 @@ Players usually overfold facing a cbet and don't raise often enough. Note that w
     - TPTK+ and strong draws XC/XR 25/75. Fastplay good hands. Heavily favor BDFD + straight equity. If unsure go for raise.
     - Medium SDV call pure
     - Air fold pure
-- Double Broadway: 
+- Double Broadway: Play defensively as not good for our range.
+    - TPTK+ XR/XC 75/25
+    - Medium SDV call 90%. Bottom pair raises a bit on rainbow.
+    - Strong Draws XC/XR 75/25. 
+    - Air XF  
 - Triple Broadway: Mostly XC with our entire range here XC 90%
 - Monotone: XC 100% on everything except for air, which we fold. 
 
