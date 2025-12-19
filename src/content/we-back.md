@@ -6,7 +6,7 @@ comic: "src/pngs/comics/calvinandhobbestrex.png"
 ---
 
 ## Life Update
-It has been a while since I have decided to write something here. So much has changed about my life since my last strip, I don't even know where to begin. For one, I have officially graduated from undergrad - bye bye SD. Wouldn't have changed much on how I spent my 4 years at undergrad. Secondly, I feel like my hobbies previously have all changed. I remember I used to play video games, play chess, and watch anime. Now, those things don't interest me anymore unless done socially. Lastly, I am not unemployed, but work remotely as a full time math tutor. Work is chill, but I'm still actively looking for a job in something I'm more interested in and considering higher education. 
+It has been a while since I have decided to write something here. So much has changed about my life since my last strip, I don't even know where to begin. For one, I have officially graduated from undergrad - bye bye SD. Wouldn't have changed much on how I spent my 4 years at undergrad. Secondly, I feel like my hobbies previously have all changed. I remember I used to play video games, play chess, and watch anime. Now, those things don't interest me anymore unless done socially. Lastly, I am not unemployed, but work remotely. Work is chill, but I'm still actively looking for a job.
 
 With two years of not practicing the art of journalism, I hope I still got it in me to write something of value.
 

@@ -364,3 +364,32 @@ Ask yourself if villian is 4! bluffing optimally. If no they are not and only 4!
 - **5!**:  KK+, AK, sometimes QQ depending on positional arragement
 - **Call**: AJs+, KJs+, TT-QQ, suited connectors 25%
 - Fold everything else
+
+#### Cold 4! vs a RFI and 3!
+
+Very very tight range overall, especially early position. 
+
+- 4! vs UTG RFI and HJ 3!
+    - QQ+, AQs+, AKo
+    - KQs, A5s 50% frequency
+- 4! vs HJ RFI and CO 3!
+    - QQ+, AQs+, KQs, AKo
+    - JJ, KJs, A5s 50% freq
+    - AQo very rarely
+- 4! vs CO RFI and BTN 3!
+    - JJ+, AJs+, KJs+
+    - AQo 75%
+    - no A5s
+- 4! vs BTN 
+    - TT+, ATs+, KTs+, AQo
+
+
+#### Squeeze Range
+
+When someone opens and a cold caller. The more people that come into a hand, the tighter you play.
+
+- BTN/SB Squeeze Range
+    - 3! ONLY: 88+, suited broadways, AJo+
+    - 3! occasionally: A5s, KQo, T9s, suited connectors rarely
+- BB Squeeze Range
+    - Refer to BB vs RFI and slightly tighten the outermost portions of our range
