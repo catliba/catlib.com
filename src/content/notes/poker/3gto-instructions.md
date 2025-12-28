@@ -238,14 +238,56 @@ Severely overfolded and underraised spot.
         - BDFD: Bet 50%/check 50%
         - Air: 75% Bet/Check 25%
 - Ace High Disconnected: 
-    
+    - Facing a cbet:
+        - TPTK+: Call 100%
+        - Medium SDV: Call 100%
+        - Strong Draws: Call 100%
+        - BDFD: Call 100%
+        - Air: Fold 
+    - Facing check:
+        - TPTK+: Bet 100%
+        - Medium SDV: Check 100%
+        - Strong Draws: Bet 100%
+        - BDFD: Bet 50%/check 50%
+        - Air: 75% Bet/Check 25%, Bet most garbage hands with no SDV. If they check raise no big deal. 
 - Single Broadway: 
-    
+    - Facing a cbet:
+        - TPTK+: Call 75%/Raise 25%, Trap sets and raise two pair and TPTK about half the time
+        - Medium SDV: Call 100%
+        - Strong Draws: Call 100%
+        - BDFD: Raise 75%/Call 25%
+        - Air: Raise 50%/Fold 50%
+    - Facing check:
+        - TPTK+: Bet 100%
+        - Medium SDV: Bet 50%/check 50%
+        - Strong Draws: Bet 100%
+        - BDFD: 75% Bet/Check 25%
+        - Air: 75% Bet/Check 25%, Lean on side of overstabbing as it is very easy for villains to overfold
 - Double Broadway: 
-
+    - Facing a cbet:
+        - TPTK+: Raise 75%/Call 25%, fastplay as villian will overdefend
+        - Medium SDV: Call 100%
+        - Strong Draws: Call 100%
+        - BDFD: Call 100%
+        - Air: Fold 100%
+    - Facing check:
+        - TPTK+: Bet 100%, fastplay
+        - Medium SDV: Check 100%
+        - Draws: Bet 25%/check 75%, stab infrequently on this board
+        - Air: 75% Bet/Check 25%
 - Triple Broadway:
-
+    - Facing a cbet:
+        - TPTK+: Call 75%/Raise 25%, Check back weak two pair
+        - Medium SDV: Call 100%
+        - Strong Draws: Call 100%
+        - Air: Fold 75%/Raise 25%
+    - Facing check:
+        - TPTK+: Bet 75%/Check 25%
+        - Medium SDV: Bet 25%/check 75%
+        - Strong Draws: Bet 50%/check 50%
+        - Air: Bet 25%/Check 75%
 - Monotone:
+    - Call facing bet, check facing check. Slowplay a lot.
 
 </details>
 
@@ -253,12 +295,52 @@ Severely overfolded and underraised spot.
 <summary><strong>3! OOP PFC</strong></summary>
 
 Severely overfolded and underaised node. 
-
 - Low Disconnected: 
     - TPTK+: 50% XC/50% XR
     - Medium SDV: 100% XC
     - Strong Draws: 75% XC/25% XR
     - BDFD: 25% XC/75% XR
     - Air: 100% XF
+- Ace High Disconnected: 
+    - TPTK+: 100% XR, No slowplaying with 2p+ because opponent has so many SDV hands to call
+    - Medium SDV: 75% XC/25% XR, Be careful not to overfold underpairs, even they continue a good amount. Middle pair and bottom pair will check raise 50% or so.
+    - Strong Draws: 25% XC/75% XR, Lean towards XR draws
+    - BDFD: 100% XF, Fold any hand that’s drawing dead to Ax
+    - Air: 100% XF
+- Double Broadway
+    - TPTK+: 100% XR, don't slowplay 2p+
+    - Medium SDV: 90% XC/10% XR, Bottom/mid pair will check raise a good amount
+    - Strong Draws: 25% XC/75% XR, Check raise all strong draws, check call pair + draw
+    - Air: 100% XF, overfolding is fine (low pocket pairs)
+- Triple Broadway
+    - TPTK+: 50% XC/50% XR, Raise sets+ and call 2p
+    - Medium SDV: 75% XC/25% XR, Raise bottom pair + straight blocker
+    - Strong Draws: 100% XC, Raise strong draws and XC pair + draws
+    - Air: 100% XF, overfolding is fine
+- Low Connected
+    - TPTK+: 25% XC/75% XR, fastplaying with sets and straights
+    - Medium SDV: 100% XC
+    - Strong Draws: 25% XC/75% XR, Raise all gutshots, straight draws, low FDs. Check call nut FDs
+    - BDFD: 25% XC/75% XR, XR low BDFD, XC Ace high BDFD
+    - Air: 100% XF, Try to find any excuse to turn your hand into a raise bluff. Only fold hands with no BDFD no BDSD
+- Single Broadway
+    - TPTK+: 100% XR, fastplay
+    - Medium SDV: 100% XC
+    - Strong Draws: 25% XC/75% XR
+    - BDFD: 100% XR, Raise any suited hand with BDFD. BDFD + BDSD ideal
+    - Air: 100% XF
+
+</details>
+
+<details>
+
+<summary><strong>4! Pot Summary</strong></summary>
+
+For 4! pots, **as the PFR**, we bet range on all boards except ones like T98, 654, 765, JT9, etc with intentions of barreling TPTK+ and air and firing through the river.
+
+For 4! pots, **as the PFC**, call hands with BDSD/BDFD and pairs on non ace high boards. On the turn, stab if opponent checks with TPTK and air and check back Middling SDV.
+
+Out of Position Adjustments:
+Look to find check-min raises with weak, backdoor flush draw/ backdoor straight draw hands. If turn bricks/check fold. If turn a draw, shove.
 
 </details>
