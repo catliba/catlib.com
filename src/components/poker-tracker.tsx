@@ -95,11 +95,6 @@ type SessionRow = {
 
   return (
     <div className="poker">
-      <div className="return">
-          <Link to={"/notes"} className='symbol'>
-            <GiReturnArrow />
-          </Link>
-      </div>
         <img src={PokerCat} alt="SplashArt" className="pokercat" />
        
         <div className="auth-controls">
