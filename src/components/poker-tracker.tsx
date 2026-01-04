@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import LogSession from './log-session';
 import Auth from './auth';
 import PokerCat from '../pngs/pokerstatssplash.png'
-import {GiReturnArrow} from 'react-icons/gi'
 
 // idea: when  clicking into screen splash page gives two cards that represent a possible poker hand randomly
 // to do: sort by location, w/l, etc

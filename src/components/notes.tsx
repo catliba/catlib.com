@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { getNotesByCategory, NoteCategory } from '../utils/notesLoader';
 import NotesDropdown from './notes-dropdown';
 import { Link } from 'react-router-dom';
-import {GiReturnArrow} from 'react-icons/gi';
 
 export default function Notes() {
   const [categories, setCategories] = useState<NoteCategory[]>([]);
@@ -53,11 +52,6 @@ export default function Notes() {
 
   return (
     <>
-      <div className="return">
-            <Link to={"/life"} className='symbol'>
-              <GiReturnArrow />
-            </Link>
-      </div>
       <div className="notes">
         <div className="notes-header">
           <h1>Notes</h1>

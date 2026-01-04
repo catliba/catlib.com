@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import PageFlip from './page-flip';
 import '../css/about-me.css';
 import { homepageImages } from '../config/images';
 import plane from '../pngs/paperairplane.png'
@@ -84,7 +83,6 @@ export default function AboutMe() {
     return (
         <>
             <div className='homepage'>
-                <PageFlip dir='/life' message='Flip me!'/>
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
                     {(/Android|iPhone/i.test(navigator.userAgent)) ? (
