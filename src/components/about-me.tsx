@@ -4,6 +4,7 @@ import { homepageImages } from '../config/images';
 import plane from '../pngs/paperairplane.png'
 import backdrop from '../pngs/Untitled_Artwork.png'
 import { AiOutlineLeft, AiOutlineRight,AiOutlineArrowRight } from 'react-icons/ai'
+import PageFlip from './page-flip';
 
 export default function AboutMe() {
     const [me, setMe] = useState<number>(0);
@@ -83,6 +84,7 @@ export default function AboutMe() {
     return (
         <>
             <div className='homepage'>
+                <PageFlip  dir="/notes" message='to notes'/>
                 <div className='content'>
                     <img src={plane} className='plane-scroller'/>
                     {(/Android|iPhone/i.test(navigator.userAgent)) ? (
