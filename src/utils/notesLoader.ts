@@ -49,6 +49,7 @@ export interface Note {
   slug: string;
   category?: string;
   folderPath?: string; // Path relative to notes folder (e.g., "react-notes" or "poker")
+  type?: 'markdown' | 'pdf'; // PDF notes use content as the PDF URL
 }
 
 export interface NoteCategory {
@@ -57,10 +58,29 @@ export interface NoteCategory {
   isDropdown: boolean;
 }
 
-// Function to load all notes
+// Humanize filename for PDF titles: "gto-guide" -> "Gto Guide"
+function humanizeFilename(filename: string): string {
+  return filename
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// Function to load all notes (markdown + PDF)
 export async function getAllNotes(): Promise<Note[]> {
   try {
     const noteModules = import.meta.glob('../content/notes/**/*.md', { 
+      eager: true,
+      as: 'raw'
+    });
+    
+    // Load PDF files as URLs (assetsInclude handles .pdf)
+    const pdfModules = import.meta.glob<string>('../content/notes/**/*.pdf', { 
+      eager: true,
+      import: 'default'
+    });
+    
+    // Optional: load PDF metadata from .pdf.meta.json files
+    const pdfMetaModules = import.meta.glob<string>('../content/notes/**/*.pdf.meta.json', {
       eager: true,
       as: 'raw'
     });
@@ -100,6 +120,47 @@ export async function getAllNotes(): Promise<Note[]> {
       } catch (parseError) {
         console.error(`Error parsing ${path}:`, parseError);
       }
+    }
+    
+    // Process PDF files
+    for (const path in pdfModules) {
+      const pdfUrl = pdfModules[path];
+      if (typeof pdfUrl !== 'string') continue;
+      
+      const pathParts = path.replace('../content/notes/', '').replace('.pdf', '').split('/');
+      const slug = pathParts.join('-');
+      const folderPath = pathParts.length > 1 ? pathParts.slice(0, -1).join('/') : '';
+      const filename = pathParts[pathParts.length - 1] || 'Untitled';
+      let title = humanizeFilename(filename);
+      let category = pathParts.length > 1 ? humanizeFilename(pathParts[0]) : 'PDF';
+      let tags: string[] = [];
+      let date = '';
+      
+      // Check for optional metadata file (e.g., guide.pdf.meta.json)
+      const metaPath = path + '.meta.json';
+      const metaRaw = pdfMetaModules[metaPath];
+      if (typeof metaRaw === 'string') {
+        try {
+          const meta = JSON.parse(metaRaw) as { title?: string; category?: string; tags?: string[]; date?: string };
+          if (meta.title) title = meta.title;
+          if (meta.category) category = meta.category;
+          if (Array.isArray(meta.tags)) tags = meta.tags;
+          if (meta.date) date = meta.date;
+        } catch {
+          // Ignore invalid meta files
+        }
+      }
+      
+      notes.push({
+        title,
+        tags,
+        date,
+        content: pdfUrl,
+        slug,
+        category,
+        folderPath,
+        type: 'pdf'
+      });
     }
     
     // Sort by folder structure first, then by filename

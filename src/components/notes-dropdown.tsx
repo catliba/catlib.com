@@ -38,18 +38,35 @@ export default function NotesDropdown({ categories }: NotesDropdownProps) {
                 {expandedCategories.has(category.name) && (
                   <div className="notes-category-content">
                     {category.notes.map(note => (
-                      <Link 
-                        key={note.slug} 
-                        to={`/notes/${note.slug}`} 
-                        className="notes-dropdown-item"
-                      >
-                        <span className="note-title">{note.title}</span>
-                        {note.date && !isNaN(new Date(note.date).getTime()) && (
-                          <span className="note-date">
-                            {new Date(note.date).toLocaleDateString()}
-                          </span>
-                        )}
-                      </Link>
+                      note.type === 'pdf' ? (
+                        <a
+                          key={note.slug}
+                          href={note.content}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="notes-dropdown-item"
+                        >
+                          <span className="note-title">{note.title}</span>
+                          {note.date && !isNaN(new Date(note.date).getTime()) && (
+                            <span className="note-date">
+                              {new Date(note.date).toLocaleDateString()}
+                            </span>
+                          )}
+                        </a>
+                      ) : (
+                        <Link 
+                          key={note.slug} 
+                          to={`/notes/${note.slug}`} 
+                          className="notes-dropdown-item"
+                        >
+                          <span className="note-title">{note.title}</span>
+                          {note.date && !isNaN(new Date(note.date).getTime()) && (
+                            <span className="note-date">
+                              {new Date(note.date).toLocaleDateString()}
+                            </span>
+                          )}
+                        </Link>
+                      )
                     ))}
                   </div>
                 )}
@@ -57,12 +74,23 @@ export default function NotesDropdown({ categories }: NotesDropdownProps) {
             ) : (
               <>
                 {category.notes.length === 1 ? (
-                  <Link 
-                    to={`/notes/${category.notes[0].slug}`} 
-                    className="notes-category-header direct-link"
-                  >
-                    <span className="category-name">{category.name}</span>
-                  </Link>
+                  category.notes[0].type === 'pdf' ? (
+                    <a
+                      href={category.notes[0].content}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="notes-category-header direct-link"
+                    >
+                      <span className="category-name">{category.name}</span>
+                    </a>
+                  ) : (
+                    <Link 
+                      to={`/notes/${category.notes[0].slug}`} 
+                      className="notes-category-header direct-link"
+                    >
+                      <span className="category-name">{category.name}</span>
+                    </Link>
+                  )
                 ) : (
                   <>
                     <div 
@@ -74,16 +102,35 @@ export default function NotesDropdown({ categories }: NotesDropdownProps) {
                     {expandedCategories.has(category.name) && (
                       <div className="notes-category-content">
                         {category.notes.map(note => (
-                          <Link 
-                            key={note.slug} 
-                            to={`/notes/${note.slug}`} 
-                            className="notes-dropdown-item"
-                          >
-                            <span className="note-title">{note.title}</span>
-                            <span className="note-date">
-                              {new Date(note.date).toLocaleDateString()}
-                            </span>
-                          </Link>
+                          note.type === 'pdf' ? (
+                            <a
+                              key={note.slug}
+                              href={note.content}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="notes-dropdown-item"
+                            >
+                              <span className="note-title">{note.title}</span>
+                              <span className="note-date">
+                                {note.date && !isNaN(new Date(note.date).getTime())
+                                  ? new Date(note.date).toLocaleDateString()
+                                  : ''}
+                              </span>
+                            </a>
+                          ) : (
+                            <Link 
+                              key={note.slug} 
+                              to={`/notes/${note.slug}`} 
+                              className="notes-dropdown-item"
+                            >
+                              <span className="note-title">{note.title}</span>
+                              <span className="note-date">
+                                {note.date && !isNaN(new Date(note.date).getTime())
+                                  ? new Date(note.date).toLocaleDateString()
+                                  : ''}
+                              </span>
+                            </Link>
+                          )
                         ))}
                       </div>
                     )}

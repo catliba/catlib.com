@@ -52,7 +52,17 @@ export default function NoteDetail() {
         </div>
 
         <div className="note-content">
-          <div dangerouslySetInnerHTML={{ __html: markdownToHtml(note.content) }} />
+          {note.type === 'pdf' ? (
+            <div className="pdf-viewer">
+              <iframe
+                src={note.content}
+                title={note.title}
+                className="pdf-iframe"
+              />
+            </div>
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: markdownToHtml(note.content) }} />
+          )}
         </div>
       </div>
     </>

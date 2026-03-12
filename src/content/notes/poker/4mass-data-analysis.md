@@ -13,26 +13,47 @@ Use MDA as a strong suggestion, know when to follow this data and make connectio
 Studying MDA not only helps you exploit villians, but can also help you self examine your own leaks and flawed playstyle.
 
 ##### Bluff Catching Regs
-5 things to look for when determining whether villian is bluffing.
+
+<details>
+  <summary>Overall Summary</summary>
+    
+  <div style="margin-left: 1.5em">
+    5 things to look for when determining whether villian is bluffing.
+
+
 - **Position**
     - later positions significantly overbluffed (BTN-BB)
     - CO is neutral
     - EP-MP underbluffed
+
+
 - **Board Texture**
     - lower disconnected boards overbluffed
     - 4 Flush River significantly overbluffed in all discontinued lines and underbluffed in continued lines
     - triple broadway, 4 flush turn, monotone, and A high boards are underbluffed
     - everything else neutral
+
+    
 - **Line**
     - discontinued overbluffed
     - continued underbluffed
+
+
 - **Flop Bet Size**
     - larger less likely bluffing
     - 0-33% overbluffed (including a X)
     - 75%+ underbluffed
+
+
 - **River Bet Size**
     - 50% and lower is overbluffed
     - 90%+ is underbluffed
+
+
+At the end of the day, either you opponent is bluffing enough and overbluffing and you call everything or they are underbluffing and you are folding bluffcatchers. Even a slight underbluff removes all bluffcatchers on the river. 
+  </div>
+
+</details>
 
 <details>
 This is from the villian's POV (villian is SRP IP PFR so we are SRP OOP PFC)
@@ -102,11 +123,18 @@ This is from the villian's POV (villian is SRP IP PFR so we are SRP OOP PFC)
 </details>
 
 ##### Reg Folding Frequency
-To be continued...
+Overall, regs overfold across the board. Hard to make a -EV river bluff vs a reg that has no read on you because they overfold on all sizings. They overfold the most when they cap their range by checking or checking back a street and overfold the least when they take lines with continued agression.
+
 ##### Bluff Raising on the River VS Reg
-To be continued...
+There are three main factors when bluff raising regs:
+1. Villian being OOP
+2. Villian taking discountinued line
+3. Villian river betsize (the smaller the better)  
+In general, the more these factors are met, the more overfolded the situation is. You can start bluffing random trast the more these factors are met. 
+
 ##### Flop and Turn Overfolds from Reg
-To be continued...
+SRP IP PFR: X-F line is overfolded
+SRP OOP PFC: XR-XF is extremely overfolded., X-XF is overfolded.
 ##### Exploiting Fish with MDA
 To be continued...
 ##### Fish folding frequency

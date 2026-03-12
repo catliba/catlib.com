@@ -60,7 +60,7 @@ export default function Notes() {
 
         {categories.length === 0 && (
           <div className="empty-state">
-            No notes found. Add markdown files to <code>src/content/notes/</code>
+            No notes found. Add markdown (.md) or PDF (.pdf) files to <code>src/content/notes/</code>
           </div>
         )}
       </div>
