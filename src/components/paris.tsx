@@ -1,7 +1,7 @@
 import '../css/paris.css';
 import { useState, useEffect } from 'react';
 import useSound from 'use-sound';
-import oldLove from '../pngs/miceonvenus.mp3';
+import oldLove from '../pngs/7weeks3days.mp3';
 import Cake from '../pngs/cake.jpg'
 import { useAllParisPages } from '../hooks/useParisPages';
 import { markdownToHtml } from '../utils/parisLoader';
