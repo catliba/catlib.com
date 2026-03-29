@@ -73,7 +73,7 @@ export default function NotesDropdown({ categories }: NotesDropdownProps) {
               </>
             ) : (
               <>
-                {category.notes.length === 1 ? (
+                {category.notes.length === 1 && !category.alwaysShowAsList ? (
                   category.notes[0].type === 'pdf' ? (
                     <a
                       href={category.notes[0].content}

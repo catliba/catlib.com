@@ -2,6 +2,7 @@
 title: "Happy Birthday!"
 slug: "birthday-message"
 date: "2024-07-24"
+audio: oldlove.mp3
 ---
 
 # Dear Weiwei,

@@ -1,12 +1,37 @@
 import { marked } from 'marked';
 
+const audioModules = import.meta.glob<string>('../pngs/**/*.mp3', {
+  eager: true,
+  import: 'default',
+});
+
+const audioUrlByFilename = new Map<string, string>();
+for (const path in audioModules) {
+  const url = audioModules[path];
+  if (typeof url !== 'string') continue;
+  const normalized = path.replace(/\\/g, '/');
+  const base = (normalized.split('/').pop() || '').toLowerCase();
+  const stem = base.replace(/\.mp3$/i, '');
+  audioUrlByFilename.set(base, url);
+  if (stem) audioUrlByFilename.set(stem, url);
+}
+
+function resolveParisAudioUrl(audioField: string | undefined): string | undefined {
+  if (!audioField?.trim()) return undefined;
+  const raw = audioField.trim().replace(/^["']|["']$/g, '');
+  const key = raw.toLowerCase();
+  const withExt = key.endsWith('.mp3') ? key : `${key}.mp3`;
+  return audioUrlByFilename.get(key) || audioUrlByFilename.get(withExt);
+}
+
 export interface ParisPage {
   title: string;
   slug: string;
   date: string;
   content: string;
   image?: string;
-  audio?: string;
+  /** Resolved asset URL for the track named in frontmatter `audio` */
+  audioUrl?: string;
 }
 
 // Function to load all Paris pages
@@ -40,7 +65,7 @@ export async function getAllParisPages(): Promise<ParisPage[]> {
           date: frontmatter.date || '',
           content: markdownContent,
           image: frontmatter.image,
-          audio: frontmatter.audio
+          audioUrl: resolveParisAudioUrl(frontmatter.audio),
         });
   
       } catch (parseError) {

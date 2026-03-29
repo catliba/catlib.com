@@ -56,6 +56,8 @@ export interface NoteCategory {
   name: string;
   notes: Note[];
   isDropdown: boolean;
+  /** PDFs in the same folder (or all root PDFs): show section header + list items like Poker subsections */
+  alwaysShowAsList?: boolean;
 }
 
 // Humanize filename for PDF titles: "gto-guide" -> "Gto Guide"
@@ -224,10 +226,17 @@ export async function getNotesByCategory(): Promise<NoteCategory[]> {
       return a.slug.localeCompare(b.slug);
     });
     
+    const allPdf =
+      sortedNotes.length > 0 && sortedNotes.every(n => n.type === 'pdf');
+    const folderKeys = new Set(sortedNotes.map(n => n.folderPath ?? ''));
+    const sameFolder = folderKeys.size === 1;
+    const alwaysShowAsList = allPdf && sameFolder && sortedNotes.length >= 1;
+
     categories.push({
       name: categoryName,
       notes: sortedNotes,
-      isDropdown: dropdownCategories.includes(categoryName) && notes.length > 1
+      isDropdown: dropdownCategories.includes(categoryName) && notes.length > 1,
+      alwaysShowAsList,
     });
   });
   

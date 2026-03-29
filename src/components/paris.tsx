@@ -1,7 +1,5 @@
 import '../css/paris.css';
 import { useState, useEffect } from 'react';
-import useSound from 'use-sound';
-import oldLove from '../pngs/7weeks3days.mp3';
 import Cake from '../pngs/cake.jpg'
 import { useAllParisPages } from '../hooks/useParisPages';
 import { markdownToHtml } from '../utils/parisLoader';
@@ -9,32 +7,25 @@ import { GiPreviousButton, GiNextButton } from 'react-icons/gi';
 
 export default function Paris() {
   const { pages, loading, error } = useAllParisPages();
-  const [playSound] = useSound(oldLove, {
-    volume: 2,
-    preload: true,
-  });
 
   const [showContent, setShowContent] = useState(false);
   const [currentCard, setCurrentCard] = useState(0);
 
-  // Play sound automatically when component loads
+  // One track per card: play when the visible letter changes (after opening)
   useEffect(() => {
-    if (playSound) {
-      try {
-        playSound();
-      } catch (err) {
-        console.warn('Failed to play sound:', err);
-        // Fallback: try using HTML5 Audio API directly
-        try {
-          const audio = new Audio(oldLove);
-          audio.volume = 2;
-          audio.play().catch(e => console.warn('Audio fallback failed:', e));
-        } catch (fallbackErr) {
-          console.warn('Audio fallback also failed:', fallbackErr);
-        }
-      }
-    }
-  }, [playSound]);
+    if (!showContent || pages.length === 0) return;
+    const url = pages[currentCard]?.audioUrl;
+    if (!url) return;
+
+    const audio = new Audio(url);
+    audio.volume = 0.9;
+    void audio.play().catch(() => {});
+
+    return () => {
+      audio.pause();
+      audio.src = '';
+    };
+  }, [showContent, currentCard, pages]);
 
   const handleClick = () => {
     setShowContent(true);
