@@ -14,5 +14,5 @@ aside from clash royale, things have been getting more real around here. been ap
 i think about you a lot. sometimes during the day, sometimes at night. regardless, i wonder what weiwei does throughout the day. i hope weiwei is doing well in china every day, just like how i hope yogi is doing well. i always hope that weiwei does not feel too lonely without her friends and more importantly libby, just like how i hope yogi does not feel too alone without weiwei. of course, i always want the best for weiwei. i hope to be near weiwei again soon.  
 
 more letters coming yesh yesh.
-
+2026-3-20
 song: 7 weeks & 3 days

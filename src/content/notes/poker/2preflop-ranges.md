@@ -2,7 +2,7 @@
 title: "Preflop Ranges"
 tags: ["poker"]
 date: "10/31/25"
-category: "Poker"
+category: "No Limit Texas Hold'em"
 ---
 
 

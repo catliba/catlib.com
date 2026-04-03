@@ -2,7 +2,7 @@
 title: "Generalized GTO Instructions"
 tags: ["poker"]
 date: "11/26/25"
-category: "Poker"
+category: "No Limit Texas Hold'em"
 ---
 
 Divided by SRP, 3!, 4! pots as well as pre flop agressor or caller as well as position. 

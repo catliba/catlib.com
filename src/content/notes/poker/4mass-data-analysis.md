@@ -2,7 +2,7 @@
 title: "Intro to MDA"
 tags: ["poker"]
 date: "12/26/25"
-category: "Poker"
+category: "No Limit Texas Hold'em"
 ---
 
 ##### What is Mass Data Analysis (MDA)?
