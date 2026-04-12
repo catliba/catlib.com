@@ -15,6 +15,6 @@ Lately, I've been dreaming a lot about my past, feeling a sense of nostalgia and
 
 I've been getting more into statistics lately. Learning it is actually quite interesting. Although I think playing poker or chess is even more interesting, statistics or decision theory in general complements my interests well. Even relearning past material I covered in college, its a lot easier to pick up and go deeper. Haven't gone that deep yet, but I want to eventually get to Stocahstic Processes. But yeah, that's also what's been on my mind lately. 
 
-~ catlib
-2026-4-3
+~ catlib  
+2026-4-3  
 Song: Mild High Club - Homage
