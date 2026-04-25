@@ -166,7 +166,19 @@ export async function getAllNotes(): Promise<Note[]> {
     }
     
     // Sort by folder structure first, then by filename
+    // Put poker-related notes at the bottom
     notes.sort((a, b) => {
+      // Check if notes are poker-related
+      const aIsPoker = (a.folderPath?.includes('poker') || a.folderPath?.includes('zpoker') || 
+                       a.category?.toLowerCase().includes('poker') || a.slug?.includes('poker'));
+      const bIsPoker = (b.folderPath?.includes('poker') || b.folderPath?.includes('zpoker') || 
+                       b.category?.toLowerCase().includes('poker') || b.slug?.includes('poker'));
+      
+      // If one is poker and the other isn't, poker goes last
+      if (aIsPoker && !bIsPoker) return 1;
+      if (!aIsPoker && bIsPoker) return -1;
+      
+      // If both are poker or both are not poker, use normal sorting
       // First sort by folder path
       if (a.folderPath && b.folderPath) {
         const folderCompare = a.folderPath.localeCompare(b.folderPath);
@@ -214,7 +226,19 @@ export async function getNotesByCategory(): Promise<NoteCategory[]> {
   
   categoryMap.forEach((notes, categoryName) => {
     // Sort notes within category by folder structure, then by filename
+    // Put poker-related notes at the bottom
     const sortedNotes = notes.sort((a, b) => {
+      // Check if notes are poker-related
+      const aIsPoker = (a.folderPath?.includes('poker') || a.folderPath?.includes('zpoker') || 
+                       a.category?.toLowerCase().includes('poker') || a.slug?.includes('poker'));
+      const bIsPoker = (b.folderPath?.includes('poker') || b.folderPath?.includes('zpoker') || 
+                       b.category?.toLowerCase().includes('poker') || b.slug?.includes('poker'));
+      
+      // If one is poker and the other isn't, poker goes last
+      if (aIsPoker && !bIsPoker) return 1;
+      if (!aIsPoker && bIsPoker) return -1;
+      
+      // If both are poker or both are not poker, use normal sorting
       // First sort by folder path
       if (a.folderPath && b.folderPath) {
         const folderCompare = a.folderPath.localeCompare(b.folderPath);
@@ -240,8 +264,18 @@ export async function getNotesByCategory(): Promise<NoteCategory[]> {
     });
   });
   
-  // Sort categories alphabetically
-  categories.sort((a, b) => a.name.localeCompare(b.name));
+  // Sort categories alphabetically, but put poker categories last
+  categories.sort((a, b) => {
+    const aIsPoker = a.name.toLowerCase().includes('poker') || a.name.toLowerCase().includes('nlh');
+    const bIsPoker = b.name.toLowerCase().includes('poker') || b.name.toLowerCase().includes('nlh');
+    
+    // If one is poker and the other isn't, poker goes last
+    if (aIsPoker && !bIsPoker) return 1;
+    if (!aIsPoker && bIsPoker) return -1;
+    
+    // If both are poker or both are not poker, sort alphabetically
+    return a.name.localeCompare(b.name);
+  });
   
   return categories;
 }
