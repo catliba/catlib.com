@@ -2,7 +2,7 @@
 title: "Intro to MDA"
 tags: ["poker"]
 date: "12/26/25"
-category: "No Limit Texas Hold'em"
+category: "NLH Ring game 6-max Strategy"
 ---
 
 ##### What is Mass Data Analysis (MDA)?

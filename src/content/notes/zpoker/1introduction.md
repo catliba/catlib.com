@@ -2,7 +2,7 @@
 title: "Introduction"
 tags: ["poker"]
 date: "10/31/25"
-category: "No Limit Texas Hold'em"
+category: "NLH Ring game 6-max Strategy"
 ---
 ##### What makes a winning player?
 I wanted to jot down my notes and experience playing No Limit Texas Hold'em. In these notes, I'm going to assume knowledge of basic rules of the game as well as player position. I'll be sharing more so strategy and GTO knowledge.

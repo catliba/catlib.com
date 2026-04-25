@@ -2,7 +2,7 @@
 title: "Preflop Ranges"
 tags: ["poker"]
 date: "10/31/25"
-category: "No Limit Texas Hold'em"
+category: "NLH Ring game 6-max Strategy"
 ---
 
 
