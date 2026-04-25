@@ -22,4 +22,4 @@ I already told you this but I had a nostalgic dream last night. Started with me 
 Just an update.
 
 Libby
-song: Emotion (Pokémon Black & White Remix)
+song: Eterna Forest (Pokémon Black & White Remix)
