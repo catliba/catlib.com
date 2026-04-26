@@ -22,4 +22,5 @@ I already told you this but I had a nostalgic dream last night. Started with me 
 Just an update.
 
 Libby
-song: Eterna Forest (Pokémon Black & White Remix)
+4/24/26
+song: Eterna Forest - Pokemon Diamond and Pearl (Remix)
